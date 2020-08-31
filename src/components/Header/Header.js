@@ -1,18 +1,36 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import {Hyph} from '../Utils/Utils';
 import './Header.css';
 
 export default class Header extends Component {
   handleLogoutClick = () => {
-    //insert tokenservice to clear authtoken.
+    TokenService.clearAuthToken();
   }
   renderLogoutLink() {
     return (
-      <div>
+      <div className='Header__logged_in'>
         <Link
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
+        </Link>
+      </div>
+    )
+  }
+
+  renderLoginLink() {
+    return (
+      <div className='Header__not-logged-in'>
+        <Link
+          to='/register'>
+          Register
+        </Link>
+        <Hyph />
+        <Link
+          to='/login'>
+          Log in
         </Link>
       </div>
     )
@@ -23,11 +41,10 @@ export default class Header extends Component {
       <nav className='Header'>
         <h1>
           <Link to='/'>
-            {' '}
             The Codes - client
           </Link>
         </h1>
-        {/* Add tokenservice check for having authtoken to change between login and logout link */}
+        {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
       </nav>
     )
   }

@@ -4,7 +4,7 @@ import AuthApiService from '../../services/auth-api-service';
 
 export default class RegisterForm extends Component {
   static defaultProps = {
-    onRegistrationSuccess: () => {}
+    onRegisterSuccess: () => {}
   }
 
   state = {error: null};
@@ -25,7 +25,7 @@ export default class RegisterForm extends Component {
       nick_name.value = '';
       user_name.value = '';
       password.value = '';
-      this.props.onRegistrationSuccess();
+      this.props.onRegisterSuccess();
     })
   };
 

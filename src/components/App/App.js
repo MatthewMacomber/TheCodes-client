@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
+import Header from '../Header/Header';
+import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
+import PriviteRoutes from '../Utils/PrivateRoutes';
+import RegisterPage from '../../routes/RegisterPage/RegisterPage';
+import LoginPage from '../../routes/LoginPage/LoginPage';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +18,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App__header">
+          <Header />
         </header>
         <main className='App__main'>
           <Switch>
@@ -22,6 +28,14 @@ class App extends Component {
               exact
               path={'/'}
               component
+            />
+            <PublicOnlyRoutes
+              path={'/login'}
+              component={LoginPage}
+            />
+            <PublicOnlyRoutes
+              path={'/register'}
+              component={RegisterPage}
             />
           </Switch>
         </main>
