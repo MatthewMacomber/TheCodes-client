@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Header from '../Header/Header';
 import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
-import PriviteRoutes from '../Utils/PrivateRoutes';
+//import PriviteRoutes from '../Utils/PrivateRoutes';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import './App.css';
