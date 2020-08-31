@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { isThisSecond } from 'date-fns';
 
 export const nullCode = {
   author: {},
@@ -20,29 +19,33 @@ export class CodeProvider extends Component {
   state = {
     code: nullCode,
     error: null
-  };
+  }
 
   setError = error => {
     console.log(error);
-    this.setState({error});
+    this.setState({error})
   }
 
   clearError = () => {
-    this.setState({error: null});
+    this.setState({error: null})
   }
 
   setCode = code => {
-    this.setState({code});
+    this.setState({code})
   }
 
   clearCode = () => {
-    this.setCode(nullCode);
+    this.setCode(nullCode)
   }
 
   render() {
     const value = {
       code: this.state.code,
       error: this.state.error,
+      setError: this.setError,
+      clearError: this.clearError,
+      setCode: this.setCode,
+      clearCode: this.clearCode
     }
 
     return (

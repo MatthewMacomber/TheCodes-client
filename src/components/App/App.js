@@ -5,14 +5,15 @@ import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
 //import PriviteRoutes from '../Utils/PrivateRoutes';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import CodeListPage from '../../routes/CodeListPage/CodeListPage';
 import './App.css';
 
 class App extends Component {
-  state = {hasError: false};
+  state = {hasError: false}
 
   static getDerivedStateFromError(error) {
-    console.log(error);
-    return {hasError: true};
+    console.log(error)
+    return {hasError: true}
   }
 
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
             <Route 
               exact
               path={'/'}
-              component
+              component={CodeListPage}
             />
             <PublicOnlyRoutes
               path={'/login'}
@@ -40,7 +41,7 @@ class App extends Component {
           </Switch>
         </main>
       </div>
-    );
+    )
   }
 }
 
