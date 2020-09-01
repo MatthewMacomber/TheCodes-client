@@ -2,7 +2,7 @@ import React from 'react';
 import {format as formatDate} from 'date-fns';
 import './Utils.css';
 
-export function NiceDate({ date, format='Do MMMM yyyy' }) {
+export function NiceDate({date, format='do MMMM yyyy'}) {
   return formatDate(new Date(date), format)
 }
 
