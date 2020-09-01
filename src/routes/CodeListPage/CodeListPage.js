@@ -5,17 +5,23 @@ import {Section} from '../../components/Utils/Utils';
 import CodeListItem from '../../components/CodeListItem/CodeListItem';
 
 export default class CodeListPage extends Component {
+  static defaultProps = {
+    match: { params: {} }
+  }
+  
   static contextType = CodeListContext;
 
   componentDidMount() {
     this.context.clearError();
     CodeApiService.getCodes()
-      .then(this.context.setCodeList)
+      .then(res => this.context.setCodeList(res))
       .catch(this.context.setError)
   }
 
   renderCodes() {
     const {codeList = []} = this.context;
+    console.log(codeList)
+
     return codeList.map(code => 
       <CodeListItem
         key={code.id}

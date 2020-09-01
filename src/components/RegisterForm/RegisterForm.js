@@ -70,9 +70,9 @@ export default class RegisterForm extends Component {
           />
         </div>
         <div className='nick_name'>
-          <lable htmlFor='RegisterForm__nick_name'>
+          <label htmlFor='RegisterForm__nick_name'>
             Nickname
-          </lable>
+          </label>
           <Input
             name='nick_name'
             type='text'

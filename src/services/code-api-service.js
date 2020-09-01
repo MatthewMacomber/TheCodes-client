@@ -4,11 +4,11 @@ import config from '../config';
 const CodeApiService = {
   getCodes() {
     return fetch(`${config.API_ENDPOINT}/codes`, {
-      header: {}
+      headers: {}
     })
-      .then(res => {
+      .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      })
+      )
   },
   getCode(codeId) {
     return fetch(`${config.API_ENDPOINT}/codes/${codeId}`, {
@@ -16,9 +16,9 @@ const CodeApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-      .then(res => {
+      .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      })
+      )
   }
 }
 

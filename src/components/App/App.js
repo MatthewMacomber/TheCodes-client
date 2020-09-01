@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Header from '../Header/Header';
 import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
-//import PriviteRoutes from '../Utils/PrivateRoutes';
+import PrivateRoutes from '../Utils/PrivateRoutes';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import CodeListPage from '../../routes/CodeListPage/CodeListPage';
+import CodePage from '../../routes/CodePage/CodePage';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import './App.css';
 
 class App extends Component {
@@ -37,6 +39,13 @@ class App extends Component {
             <PublicOnlyRoutes
               path={'/register'}
               component={RegisterPage}
+            />
+            <PrivateRoutes
+              path={'/code/:codeId'}
+              component={CodePage}
+            />
+            <Route
+              component={NotFoundPage}
             />
           </Switch>
         </main>

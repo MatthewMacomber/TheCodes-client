@@ -14,7 +14,7 @@ export default class CodeListItem extends Component {
           <CodeDate code={code} />
         </header>
         <footer className='CodeListItem__footer'>
-          {code.author.id && <>
+          {code.user_id && <>
             <Hyph />
             <CodeAuthor code={code} />
           </>}
@@ -37,7 +37,7 @@ function CodeDate({code}) {
 function CodeAuthor({code}) {
   return (
     <span className='CodeListItem__author'>
-      {code.author.full_name}
+      {code.user_id}
     </span>
   )
 }

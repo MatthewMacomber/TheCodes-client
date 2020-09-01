@@ -17,6 +17,8 @@ export class CodeListProvider extends Component {
   }
 
   setCodeList = codeList => {
+    console.log('Setting codeList to:');
+    console.log(codeList);
     this.setState({codeList})
   }
 

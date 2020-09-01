@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 export const nullCode = {
-  author: {},
+  user_id: {},
 }
 
 const CodeContext = React.createContext({
@@ -10,7 +10,7 @@ const CodeContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   setCode: () => {},
-  clearCode: () => {},
+  clearCode: () => {}
 })
 
 export default CodeContext;
@@ -31,6 +31,7 @@ export class CodeProvider extends Component {
   }
 
   setCode = code => {
+    console.log(code);
     this.setState({code})
   }
 

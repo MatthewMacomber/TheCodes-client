@@ -45,7 +45,6 @@ export default class LoginForm extends Component {
           </label>
           <Input
             name='user_name'
-            type='text'
             required
             id='LoginForm__user_name'
           />
