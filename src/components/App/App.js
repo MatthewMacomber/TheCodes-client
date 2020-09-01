@@ -7,6 +7,8 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import CodeListPage from '../../routes/CodeListPage/CodeListPage';
 import CodePage from '../../routes/CodePage/CodePage';
+import AdminLogin from '../../routes/AdminPage/AdminLogin';
+import AdminPage from '../../routes/AdminPage/AdminPage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import './App.css';
 
@@ -43,6 +45,14 @@ class App extends Component {
             <PrivateRoutes
               path={'/code/:codeId'}
               component={CodePage}
+            />
+            <PublicOnlyRoutes 
+              path={'/admin'}
+              component={AdminLogin}
+            />
+            <PrivateRoutes
+              path={'/admin/panel'}
+              component={AdminPage}
             />
             <Route
               component={NotFoundPage}

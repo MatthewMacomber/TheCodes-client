@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm';
-import { Section } from '../../components/Utils/Utils';
+import {Section} from '../../components/Utils/Utils';
+import AdminLoginForm from '../../components/LoginForm/AdminLoginForm';
 
-export default class LoginPage extends Component {
+export default class AdminLogin extends Component {
   static defaultProps = {
     location: {},
     history: {
@@ -10,20 +10,20 @@ export default class LoginPage extends Component {
     }
   };
 
-  handleLoginSuccess = () => {
+  handleAdminLoginSuccess = () => {
     const {location, history} = this.props;
     const destination = (location.state || {}).from || '/';
     history.push(destination);
-  };
-
+  }
+  
   render() {
     return (
       <Section className='LoginPage'>
-        <h2>Login</h2>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
+        <h2>Admin Login</h2>
+        <AdminLoginForm
+          onLoginSuccess={this.handleAdminLoginSuccess}
         />
       </Section>
-    );
-  };
-};
+    )
+  }
+}
