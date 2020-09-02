@@ -42,15 +42,17 @@ class App extends Component {
               path={'/register'}
               component={RegisterPage}
             />
-            <PrivateRoutes
-              path={'/code/:codeId'}
-              component={CodePage}
-            />
             <PublicOnlyRoutes 
+              exact
               path={'/admin'}
               component={AdminLogin}
             />
             <PrivateRoutes
+              path={'/code/:codeId'}
+              component={CodePage}
+            />
+            <PrivateRoutes
+              exact
               path={'/admin/panel'}
               component={AdminPage}
             />

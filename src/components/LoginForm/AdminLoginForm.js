@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Button, Input} from '../Utils/Utils';
 import TokenService from '../../services/token-service';
-import AuthApiService from '../../services/auth-api-service';
+import AdminAuthApiService from '../../services/admin-auth-api-service';
 
-export default class LoginForm extends Component {
+export default class AdminLoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {}
   }
@@ -15,7 +15,7 @@ export default class LoginForm extends Component {
     this.setState({error: null});
     const {user_name, password} = ev.target;
 
-    AuthApiService.postLogin({
+    AdminAuthApiService.postLogin({
       user_name: user_name.value,
       password: password.value,
     })
