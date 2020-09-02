@@ -1,24 +1,27 @@
 import React, {Component} from 'react';
 import {Section} from '../../components/Utils/Utils';
-import CodeContext from '../../contexts/CodeContext';
+import CodeListPage from '../CodeListPage/CodeListPage';
 import AdminService from '../../services/admin-api-service';
-import CodeService from '../../services/code-api-service';
-
+import CodeApiService from '../../services/code-api-service';
+import CodeListItem from '../../components/CodeListItem/CodeListItem';
 
 export default class AdminPage extends Component {
   static defaultProps ={
     match: {params: {}}
   }
 
-  static context = CodeContext;
+  state = {
+    content: []
+  }
 
   renderAdmin() {
     return (
       <>
-        <button>
+        <h2>Admin Home</h2>
+        <button onClick={this.renderCodes}>
           List codes
         </button>
-        <button>
+        <button onClick={this.renderUserList}>
           List users
         </button>
         <div>
@@ -31,35 +34,33 @@ export default class AdminPage extends Component {
     )
   }
 
-  listCodes() {
-    return (
-      <>
-        List of codes here.
-      </>
-    )
+  renderCodes = () => {
+    this.setState({
+      content: <CodeListPage />
+    })
   }
 
-  listUsers() {
-    return (
-      <>
-        List of users here.
-      </>
-    )
+  
+
+  renderUserList = () => {
+    this.setState({
+      content: <>Userlist</>
+    })
   }
 
-  displayUser() {
-    return (
-      <>
-        Display user here.
-      </>
-    )
+  renderUser = () => {
+    this.setState({
+      content: <>A User</>
+    })
   }
 
   render() {
+    const {error} = this.context;
+    let content = this.state.content;
     return (
       <Section className='AdminPage'>
-        <h2>Admin Home</h2>
         {this.renderAdmin()}
+        {error ? <p className='red'>There was an error, please try again</p> : content}
       </Section>
     )
   }

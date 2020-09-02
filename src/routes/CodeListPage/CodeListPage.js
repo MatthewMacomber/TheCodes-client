@@ -20,8 +20,6 @@ export default class CodeListPage extends Component {
 
   renderCodes() {
     const {codeList = []} = this.context;
-    console.log(codeList)
-
     return codeList.map(code => 
       <CodeListItem
         key={code.id}
