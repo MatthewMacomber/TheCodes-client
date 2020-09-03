@@ -4,6 +4,7 @@ import CodeApiService from '../../services/code-api-service';
 import {Section} from '../../components/Utils/Utils';
 import CodeListItem from '../../components/CodeListItem/CodeListItem';
 import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 export default class UserCodesPage extends Component {
   static defaultProps ={
@@ -15,7 +16,9 @@ export default class UserCodesPage extends Component {
   componentDidMount() {
     this.context.clearError();
     // Replace with user_id specific request.
-    CodeApiService.getCodes()
+    const user_id = parseInt(JSON.parse(TokenService.getAuthToken())["subject"].user_id)
+    console.log(user_id)
+    CodeApiService.getUserCodes(user_id)
       .then(res => this.context.setCodeList(res))
       .catch(this.context.setError)
   }

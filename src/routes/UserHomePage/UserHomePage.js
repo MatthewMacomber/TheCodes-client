@@ -12,7 +12,7 @@ export default class UserHomePage extends Component {
   }
 
   componentWillMount() {
-    const user_name = JSON.parse(TokenService.getAuthToken())["subject"];
+    const user_name = JSON.parse(TokenService.getAuthToken())["subject"].user_name;
     this.setState({
       user: {user_name},
     })

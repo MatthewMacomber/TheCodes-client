@@ -19,6 +19,16 @@ const CodeApiService = {
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
+  },
+  getUserCodes(userId) {
+    return fetch(`${config.API_ENDPOINT}/codes/user/${userId}`, {
+      headers : {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res =>
+        (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
   }
 }
 
