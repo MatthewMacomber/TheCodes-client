@@ -14,8 +14,8 @@ export default class UserListItem extends Component {
           <NiceDate date={user.date_created} />
         </header>
         <footer className='UserListItem__footer'>
-          {user.user_id && <>
-            <Hyph />
+          {user.id && <>
+            User ID: {user.id}
           </>}
         </footer>
       </Link>

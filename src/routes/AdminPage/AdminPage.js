@@ -5,6 +5,8 @@ import UserListPage from '../UserListPage/UserListPage';
 import AdminService from '../../services/admin-api-service';
 import CodeApiService from '../../services/code-api-service';
 import CodeListItem from '../../components/CodeListItem/CodeListItem';
+import AdminApiService from '../../services/admin-api-service';
+import UserListItem from '../../components/UserListItem/UserListItem';
 
 export default class AdminPage extends Component {
   static defaultProps ={
@@ -12,7 +14,8 @@ export default class AdminPage extends Component {
   }
 
   state = {
-    content: []
+    content: [],
+    user: null
   }
 
   renderAdmin() {
@@ -25,12 +28,12 @@ export default class AdminPage extends Component {
         <button onClick={this.renderUserList}>
           List users
         </button>
-        <div>
-          <input type="text" />
-          <button>
+        <form onSubmit={this.renderUser}>
+          <input type="text" name="user_id" placeholder="User ID #"/>
+          <button type="submit">
             Display User
           </button>
-        </div>
+        </form>
       </>
     )
   }
@@ -41,7 +44,6 @@ export default class AdminPage extends Component {
     })
   }
 
-  
 
   renderUserList = () => {
     this.setState({
@@ -49,9 +51,16 @@ export default class AdminPage extends Component {
     })
   }
 
-  renderUser = () => {
+  renderUser = e => {
+    e.preventDefault();
+    const {user_id} = e.target;
+    AdminApiService.getUser(parseInt(user_id.value))
+    .then(res => this.setUser(res))
+  }
+
+  setUser = user => {
     this.setState({
-      content: <>A User</>
+      content: <UserListItem user={user}/>
     })
   }
 
