@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {NiceDate, Section, Button} from '../../components/Utils/Utils';
-import './UserHomePage.css';
 import TokenService from '../../services/token-service';
+import './UserHomePage.css';
 
 export default class UserHomePage extends Component {
   state = {
@@ -36,7 +36,7 @@ export default class UserHomePage extends Component {
           </div>
           <div className="user-menu-item">
             <h2>Create Codes</h2>
-            <Link to="/">{/* replace with users codes page that has a create code button on it. */}
+            <Link to="/create">{/* replace with users codes page that has a create code button on it. */}
               <Button>Create</Button>
             </Link>
           </div>

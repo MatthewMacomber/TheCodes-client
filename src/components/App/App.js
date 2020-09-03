@@ -19,6 +19,7 @@ import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import UserPage from '../../routes/UserPage/UserPage';
 import HomePage from '../../routes/HomePage/HomePage';
 import UserHomePage from '../../routes/UserHomePage/UserHomePage';
+import UserCodesPage from '../../routes/UserCodesPage/UserCodesPage';
 
 
 
@@ -65,6 +66,10 @@ class App extends Component {
             <PrivateRoutes
               path={'/userhome'}
               component={UserHomePage}
+            />
+            <PrivateRoutes
+              path={'/create'}
+              component={UserCodesPage}
             />
             <PrivateRoutes
               path={'/code/:codeId'}
