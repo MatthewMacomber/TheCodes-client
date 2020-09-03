@@ -1,34 +1,45 @@
 import React, {Component} from 'react';
-//import CodeListContext from '../../contexts/CodeListContext';
-//import CodeApiService from '../../services/code-api-service';
 import AdminApiService from '../../services/admin-api-service';
 import {Section} from '../../components/Utils/Utils';
-//import CodeListItem from '../../components/CodeListItem/CodeListItem';
+import UserListItem from '../../components/UserListItem/UserListItem';
 
-export default class CodeListPage extends Component {
+export default class UserListPage extends Component {
   static defaultProps = {
     match: { params: {} }
   }
 
   state = {
+    userList: [],
     error: null
   }
   
-  //static contextType = CodeListContext;
+  setError = error => {
+    console.log(error)
+    this.setState({error})
+  }
+
+  clearError = () => {
+    this.setState({error: null})
+  }
+
+  setUserList = userList => {
+    this.setState({userList})
+  }
 
   componentDidMount() {
-    this.context.clearError();
+    this.clearError();
     AdminApiService.getUsers()
-      .then(this.context.setCodeList)
-      .catch(this.context.setError)
+      .then(res => this.setUserList(res))
+      .then(console.log(this.state.userList))
+      .catch(this.setError)
   }
 
   renderUsers() {
-    const {codeList = []} = this.context;
-    return codeList.map(code => 
-      <CodeListItem
-        key={code.id}
-        code={code}
+    const userList = this.state.userList;
+    return userList.map(user => 
+      <UserListItem
+        key={user.id}
+        user={user}
       />
     )
   }
@@ -37,6 +48,7 @@ export default class CodeListPage extends Component {
     const {error} = this.state;
     return (
       <Section list className='UserListPage'>
+        <p>UserList:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderUsers()}
       </Section>
     )
