@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
+
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
 import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
 import PrivateRoutes from '../Utils/PrivateRoutes';
+
+import './App.css';
+
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import CodeListPage from '../../routes/CodeListPage/CodeListPage';
@@ -11,7 +17,10 @@ import AdminLogin from '../../routes/AdminPage/AdminLogin';
 import AdminPage from '../../routes/AdminPage/AdminPage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import UserPage from '../../routes/UserPage/UserPage';
-import './App.css';
+import HomePage from '../../routes/HomePage/HomePage';
+import UserHomePage from '../../routes/UserHomePage/UserHomePage';
+
+
 
 class App extends Component {
   state = {hasError: false}
@@ -33,6 +42,11 @@ class App extends Component {
             <Route 
               exact
               path={'/'}
+              component={HomePage}
+            />
+            <Route 
+              exact
+              path={'/codes'}
               component={CodeListPage}
             />
             <PublicOnlyRoutes
@@ -47,6 +61,10 @@ class App extends Component {
               exact
               path={'/admin'}
               component={AdminLogin}
+            />
+            <PrivateRoutes
+              path={'/userhome'}
+              component={UserHomePage}
             />
             <PrivateRoutes
               path={'/code/:codeId'}
@@ -66,6 +84,9 @@ class App extends Component {
             />
           </Switch>
         </main>
+        <footer className="App__Footer">
+          <Footer />
+        </footer>
       </div>
     )
   }
