@@ -30,7 +30,6 @@ export default class UserListPage extends Component {
     this.clearError();
     AdminApiService.getUsers()
       .then(res => this.setUserList(res))
-      .then(console.log(this.state.userList))
       .catch(this.setError)
   }
 

@@ -10,6 +10,7 @@ import CodePage from '../../routes/CodePage/CodePage';
 import AdminLogin from '../../routes/AdminPage/AdminLogin';
 import AdminPage from '../../routes/AdminPage/AdminPage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
+import UserPage from '../../routes/UserPage/UserPage';
 import './App.css';
 
 class App extends Component {
@@ -55,6 +56,10 @@ class App extends Component {
               exact
               path={'/admin/panel'}
               component={AdminPage}
+            />
+            <PrivateRoutes
+              path={'/user/:user_id'}
+              component={UserPage}
             />
             <Route
               component={NotFoundPage}
