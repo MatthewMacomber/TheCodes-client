@@ -20,11 +20,14 @@ import UserPage from '../../routes/UserPage/UserPage';
 import HomePage from '../../routes/HomePage/HomePage';
 import UserHomePage from '../../routes/UserHomePage/UserHomePage';
 import UserCodesPage from '../../routes/UserCodesPage/UserCodesPage';
+import CreateCodePage from '../../routes/CreateCodePage/CreateCodePage';
 
 
 
 class App extends Component {
-  state = {hasError: false}
+  state = {
+    hasError: false
+  }
 
   static getDerivedStateFromError(error) {
     console.log(error)
@@ -70,6 +73,10 @@ class App extends Component {
             <PrivateRoutes
               path={'/create'}
               component={UserCodesPage}
+            />
+            <PrivateRoutes
+              path={'/createcode'}
+              component={CreateCodePage}
             />
             <PrivateRoutes
               path={'/code/:codeId'}

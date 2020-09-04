@@ -10,10 +10,15 @@ export default class HomePage extends Component {
     return (
       <div>
         <Section>
-          <img src="http://via.placeholder.com/300" alt="The Codes Homepage"/>
+          <img src="http://via.placeholder.com/300" alt="The Codes Homepage Placeholder"/>
         </Section>
         <Section>
-          <Button>Register</Button><Button>Login</Button>
+          <Link to="/register">
+            <Button>Register</Button>
+          </Link>
+          <Link to="/login">
+            <Button>Login</Button>
+          </Link>
           <h3>Welcome to The Codes</h3>
           <p>
             Solve codes, win prizes, prove just how vast your

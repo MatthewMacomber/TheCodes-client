@@ -20,16 +20,28 @@ const CodeApiService = {
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
   },
-  // verify user via authtoken instead of passing user_id.
   getUserCodes() {
     return fetch(`${config.API_ENDPOINT}/codes/usercodes`, {
-      headers : {
+      headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
+  },
+  postCode(code) {
+    return fetch(`${config.API_ENDPOINT}/codes/usercodes`, {
+      method: 'POST',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(code)
+    })
+      .then(res => {
+        (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+      })
   }
 }
 

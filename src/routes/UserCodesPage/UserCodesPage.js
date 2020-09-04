@@ -4,7 +4,6 @@ import CodeApiService from '../../services/code-api-service';
 import {Section} from '../../components/Utils/Utils';
 import CodeListItem from '../../components/CodeListItem/CodeListItem';
 import { Link } from 'react-router-dom';
-import TokenService from '../../services/token-service';
 
 export default class UserCodesPage extends Component {
   static defaultProps ={
@@ -41,7 +40,7 @@ export default class UserCodesPage extends Component {
           {error ? <p className='red'>There was an error, please try again</p> : this.renderCodes()}
         </Section>
         <Section>
-          <Link to=""><input className='add-code-button' type='button' value='+'/></Link>
+          <Link to="/createcode"><input className='add-code-button' type='button' value='+'/></Link>
         </Section>
       </Section>
     )
