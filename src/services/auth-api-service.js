@@ -16,6 +16,7 @@ const AuthApiService = {
           : res.json()
       )
       .then(res => {
+        console.log(res.authToken)
         TokenService.saveAuthToken(res.authToken)
         return res
       })

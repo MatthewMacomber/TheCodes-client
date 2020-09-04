@@ -15,10 +15,7 @@ export default class UserCodesPage extends Component {
 
   componentDidMount() {
     this.context.clearError();
-    // Replace with user_id specific request.
-    const user_id = parseInt(JSON.parse(TokenService.getAuthToken())["subject"].user_id)
-    console.log(user_id)
-    CodeApiService.getUserCodes(user_id)
+    CodeApiService.getUserCodes()
       .then(res => this.context.setCodeList(res))
       .catch(this.context.setError)
   }
