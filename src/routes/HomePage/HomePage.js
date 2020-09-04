@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {NiceDate, Hpyh, Section, Button} from '../../components/Utils/Utils';
+import {Section, Button} from '../../components/Utils/Utils';
 import './HomePage.css';
 
 export default class HomePage extends Component {

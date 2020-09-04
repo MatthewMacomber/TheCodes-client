@@ -11,7 +11,7 @@ export default class CreateCodePage extends Component {
 
   handleCreateCodeSuccess = code => {
     const {history} = this.props;
-    history.push('/create');
+    history.push(`/code/${code.id}`);
   }
 
   render() {

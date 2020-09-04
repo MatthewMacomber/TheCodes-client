@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Button, Input, Required} from '../Utils/Utils';
-import TokenService from '../../services/token-service';
 import CodeApiService from '../../services/code-api-service';
 
 export default class CreateCodeForm extends Component {
@@ -11,13 +10,22 @@ export default class CreateCodeForm extends Component {
   state = {error: null};
 
   handleSubmit = ev => {
-    //Submit code via CodeApi
     ev.preventDefault();
     const  {code_name, the_code, the_answer} = ev.target;
     console.log(`${code_name} : ${the_code} : ${the_answer}`)
+    
     this.setState({error: null})
-    //Check for valid user auth token first via TokenService.
-    //Post code to server via CodeApiService.
+    CodeApiService.postCode({
+      code_name: code_name.value,
+      the_code: the_code.value,
+      the_answer: the_answer.value
+    })
+    .then(code => {
+      code_name.value = '';
+      the_code.value = '';
+      the_answer.value = '';
+      this.props.onCodeCreateSuccess(code);
+    })
   }
 
   clearForm = () => {

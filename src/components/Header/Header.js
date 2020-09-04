@@ -42,7 +42,7 @@ export default class Header extends Component {
       <nav className='Header'>
         <h1>
           <Link to='/'>
-            The Codes - client
+            The Codes
           </Link>
         </h1>
         {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
