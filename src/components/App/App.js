@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 
 import PublicOnlyRoutes from '../Utils/PublicOnlyRoutes';
 import PrivateRoutes from '../Utils/PrivateRoutes';
+import AdminRoutes from '../Utils/AdminRoutes';
 
 import './App.css';
 
@@ -82,12 +83,12 @@ class App extends Component {
               path={'/code/:codeId'}
               component={CodePage}
             />
-            <PrivateRoutes
+            <AdminRoutes
               exact
               path={'/admin/panel'}
               component={AdminPage}
             />
-            <PrivateRoutes
+            <AdminRoutes
               path={'/user/:user_id'}
               component={UserPage}
             />

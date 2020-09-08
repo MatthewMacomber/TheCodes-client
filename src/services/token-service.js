@@ -13,6 +13,19 @@ const TokenService = {
   hasAuthToken() {
     return !!TokenService.getAuthToken();
   },
+  hasAdminToken() {
+    let token = TokenService.getAuthToken();
+    if (!token) {
+      return false;
+    }
+    let jwtData = token.split('.')[1];
+    let decodedJwtJson = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJson);
+    if (decodedJwtData.role !== 'admin') {
+      return false
+    }
+    return true
+  },
   makeBasicAuthToken(userName, password) {
     return window.btoa(`${userName}:${password}`);
   },
