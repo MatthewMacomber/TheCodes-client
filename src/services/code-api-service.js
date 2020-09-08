@@ -42,6 +42,11 @@ const CodeApiService = {
       .then(res => {
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       })
+  },
+  submitAnswer(answer) {
+    console.log('Submitting an answer:')
+    console.log(answer)
+    return null
   }
 }
 

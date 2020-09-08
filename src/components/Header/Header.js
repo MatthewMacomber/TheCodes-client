@@ -20,6 +20,21 @@ export default class Header extends Component {
     return (
       <div className='Header__logged_in'>
         <Link
+          to='/codes'>
+          Solve Codes
+        </Link>
+        <Hyph />
+        <Link
+          to='/userhome'>
+          My Codes
+        </Link>
+        <Hyph />
+        <Link
+          to='/'>
+          My Answers
+        </Link>
+        <Hyph />
+        <Link
           onClick={this.handleLogoutClick}
           to='/'>
           Logout

@@ -24,11 +24,6 @@ export default class CodePage extends Component {
     this.context.clearCode()
   }
 
-  handleSubmitAnswerSuccess = answer => {
-    const {history} = this.props;
-    history.push(`/answer/${answer.id}`);
-  }
-
   renderCode() {
     const {code} = this.context
     return (
@@ -45,7 +40,7 @@ export default class CodePage extends Component {
             <NiceDate date={code.date_created} />
           </p>
           <CodeContent code={code} />
-          <SubmitAnswerForm onSubmitAnswerSuccess={this.handleSubmitAnswerSuccess}/>
+          <SubmitAnswerForm />
         </div>
       </>
     )
