@@ -7,6 +7,13 @@ import './Header.css';
 export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
+    this.props.login(false);
+  }
+
+  componentDidMount() {
+    if (TokenService.hasAuthToken()) {
+      this.props.login(true);
+    }
   }
 
   renderLogoutLink() {
@@ -45,7 +52,7 @@ export default class Header extends Component {
             The Codes
           </Link>
         </h1>
-        {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
+        {this.props.loggedIn ? this.renderLogoutLink() : this.renderLoginLink()}
       </nav>
     )
   }

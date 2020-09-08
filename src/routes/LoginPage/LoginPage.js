@@ -14,6 +14,7 @@ export default class LoginPage extends Component {
     const {location, history} = this.props;
     const destination = (location.state || {}).from || '/userhome';
     history.push(destination);
+    this.props.login(true);
   };
 
   render() {

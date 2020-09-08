@@ -27,7 +27,8 @@ import CreateCodePage from '../../routes/CreateCodePage/CreateCodePage';
 
 class App extends Component {
   state = {
-    hasError: false
+    hasError: false,
+    loggedIn: false
   }
 
   static getDerivedStateFromError(error) {
@@ -35,11 +36,17 @@ class App extends Component {
     return {hasError: true}
   }
 
+  login = loginState => {
+    this.setState({
+      loggedIn: loginState
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App__header">
-          <Header />
+          <Header loggedIn={this.state.loggedIn} login={this.login}/>
         </header>
         <main className='App__main'>
           <Switch>
@@ -56,7 +63,7 @@ class App extends Component {
             />
             <PublicOnlyRoutes
               path={'/login'}
-              component={LoginPage}
+              component={() => <LoginPage login={this.login} />}
             />
             <PublicOnlyRoutes
               path={'/register'}
@@ -65,7 +72,7 @@ class App extends Component {
             <PublicOnlyRoutes 
               exact
               path={'/admin'}
-              component={AdminLogin}
+              component={() => <AdminLogin login={this.login}/>}
             />
             <PrivateRoutes
               path={'/userhome'}

@@ -14,6 +14,7 @@ export default class AdminLogin extends Component {
     const {location, history} = this.props;
     const destination = (location.state || {}).from || '/';
     history.push(destination);
+    this.props.login(true);
   }
   
   render() {
