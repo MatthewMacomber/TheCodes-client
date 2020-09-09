@@ -45,7 +45,7 @@ export default class CodePage extends Component {
             <NiceDate date={code.date_created} />
           </p>
           <CodeContent code={code} />
-          <SubmitAnswerForm onSubmitAnswerSuccess={this.handleSubmitAnswerSuccess}/>
+          <SubmitAnswerForm onSubmitAnswerSuccess={this.handleSubmitAnswerSuccess} code_id={code.id}/>
         </div>
       </>
     )

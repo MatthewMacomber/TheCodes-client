@@ -31,17 +31,18 @@ const CodeApiService = {
       )
   },
   postCode(code) {
+    console.log(code)
     return fetch(`${config.API_ENDPOINT}/codes/usercodes`, {
       method: 'POST',
       headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(code)
     })
-      .then(res => {
+      .then(res =>
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      })
+      )
   }
 }
 

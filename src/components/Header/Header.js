@@ -16,6 +16,18 @@ export default class Header extends Component {
     }
   }
 
+  loadUsername() {
+    const token = TokenService.getAuthToken();
+    if (!token) {
+      return 'UserNameError'
+    }
+    const jwtData = token.split('.')[1];
+    const decodedJwtJson = window.atob(jwtData);
+    const decodedJwtData = JSON.parse(decodedJwtJson);
+    const user_name = decodedJwtData.sub;
+    return user_name;
+  }
+
   renderLogoutLink() {
     return (
       <div className='Header__logged_in'>
@@ -39,6 +51,8 @@ export default class Header extends Component {
           to='/'>
           Logout
         </Link>
+        <Hyph />
+        {this.loadUsername()}
       </div>
     )
   }
@@ -46,6 +60,11 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className='Header__not-logged-in'>
+        <Link
+          to='/codes'>
+          View Codes
+        </Link>
+        <Hyph />
         <Link
           to='/register'>
           Register

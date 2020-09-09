@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import AnswerApiService from '../../services/answer-api-service';
-import {NiceDate, Hyph, Section} from '../../components/Utils/Utils';
+import {NiceDate, Hyph, Section, Input} from '../../components/Utils/Utils';
 
 export default class AnswerPage extends Component {
   static defaultProps = {
@@ -33,22 +34,29 @@ export default class AnswerPage extends Component {
       .catch(this.setError)
   }
 
+  verify() {
+    // TODO Handle submission of a answer verification request.
+    console.log('submitted verification request.')
+    return null
+  }
+
   renderAnswer() {
     const answer = this.state.answer
     if (!answer) {
       return null
     }
-    // TODO Add actual checking of answer and displaying of code.
     return (
       <>
         <header>
-          <h3>Your answer:</h3>
+          <h3>Your answer to code '<Link to={`/code/${answer.code_id}`}>{answer.code_id}</Link>':</h3>
           Date Submitted: <NiceDate date={answer.date_created} />
         </header>
         <Section>
-          <p>Answer:</p>
+          <p>Answer Given:</p>
           <p>{answer.content}</p>
-          <p>Correct/Wrong</p>
+          <p>You Are:</p>
+          <p>{answer.correct ? <>Correct. Congrats!</> : <>Wrong. Try Again?</>}</p>
+          <Input type='button' value='Request Verification' onClick={this.verify}/>
         </Section>
         <footer>
         ID <Hyph /> {answer.id}. Submitted by <Hyph /> {answer.user_name}.

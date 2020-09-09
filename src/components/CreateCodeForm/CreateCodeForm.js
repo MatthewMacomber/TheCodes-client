@@ -12,7 +12,7 @@ export default class CreateCodeForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault();
     const  {code_name, the_code, the_answer} = ev.target;
-    console.log(`${code_name} : ${the_code} : ${the_answer}`)
+    console.log(`${code_name.value} : ${the_code.value} : ${the_answer.value}`)
     
     this.setState({error: null})
     CodeApiService.postCode({
@@ -20,12 +20,13 @@ export default class CreateCodeForm extends Component {
       the_code: the_code.value,
       the_answer: the_answer.value
     })
-    .then(code => {
-      code_name.value = '';
-      the_code.value = '';
-      the_answer.value = '';
-      this.props.onCodeCreateSuccess(code);
-    })
+      .then(code => {
+        code_name.value = '';
+        the_code.value = '';
+        the_answer.value = '';
+        this.props.onCodeCreateSuccess(code);
+        console.log(code)
+      })
   }
 
   clearForm = () => {

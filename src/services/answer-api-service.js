@@ -26,16 +26,18 @@ const AnswerApiService = {
       )
   },
   submitAnswer(answer) {
+    console.log(answer)
     return fetch(`${config.API_ENDPOINT}/answers`, {
       method: 'POST',
       headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(answer)
     })
-      .then(res => {
+      .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      })
+      )
   }
 }
 

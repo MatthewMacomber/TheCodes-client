@@ -13,6 +13,7 @@ export default class AnswerListItem extends Component {
           </h2>
           <NiceDate date={answer.date_created} />
         </header>
+        <h3>{answer.correct ? <>Correct</> : <>Wrong</>}</h3>
         <footer>
           Answer ID <Hyph /> {answer.id}
         </footer>

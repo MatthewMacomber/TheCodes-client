@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Required} from '../Utils/Utils';
-import CodeApiService from '../../services/code-api-service';
+import AnswerApiService from '../../services/answer-api-service';
 
 export default class SubmitAnswerForm extends Component {
   static defaultProps = {
@@ -15,8 +15,9 @@ export default class SubmitAnswerForm extends Component {
     console.log(`${the_answer}`)
     
     this.setState({error: null})
-    CodeApiService.submitAnswer({
-      the_answer: the_answer.value
+    AnswerApiService.submitAnswer({
+      the_answer: the_answer.value,
+      code_id: this.props.code_id
     })
     .then(answer => {
       the_answer.value = '';
