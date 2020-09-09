@@ -1,84 +1,68 @@
 import React, {Component} from 'react';
-import CodeContext, {nullCode} from '../../contexts/CodeContext';
-import CodeApiService from '../../services/code-api-service';
+import AnswerApiService from '../../services/answer-api-service';
 import {NiceDate, Hyph, Section} from '../../components/Utils/Utils';
-import SubmitAnswerForm from '../../components/SubmitAnswerForm/SubmitAnswerForm';
-import './CodePage.css';
 
-export default class CodePage extends Component {
+export default class AnswerPage extends Component {
   static defaultProps = {
     match: {params: {}}
   }
 
-  static contextType = CodeContext
+  state = {
+    answer: null,
+    error: null
+  }
+
+  setError = error => {
+    console.log(error)
+    this.setState({error})
+  }
+
+  clearError = () => {
+    this.setState({error: null})
+  }
+
+  setAnswer = answer => {
+    this.setState({answer})
+  }
 
   componentDidMount() {
-    const {codeId} = this.props.match.params;
-    this.context.clearError();
-    CodeApiService.getCode(codeId)
-      .then(this.context.setCode)
-      .catch(this.context.setError)
+    const {answer_id} = this.props.match.params;
+    this.clearError();
+    AnswerApiService.getUserAnswer(answer_id)
+      .then(res => this.setAnswer(res))
+      .catch(this.setError)
   }
 
-  componentWillMount() {
-    this.context.clearCode()
-  }
-
-  renderCode() {
-    const {code} = this.context
+  renderAnswer() {
+    const answer = this.state.answer
+    if (!answer) {
+      return null
+    }
+    // TODO Add actual checking of answer and displaying of code.
     return (
       <>
-        <h3>Viewing:</h3>
-        <div className='ViewCode'>
-          <h2>{code.title}</h2>
-          <p>
-            <span className='CodePage__style' />
-            {code.user_name && <>
-              <CodeAuthor code={code} />
-            </>}
-            <Hyph />
-            <NiceDate date={code.date_created} />
-          </p>
-          <CodeContent code={code} />
-          <SubmitAnswerForm />
-        </div>
+        <header>
+          <h3>Your answer:</h3>
+          Date Submitted: <NiceDate date={answer.date_created} />
+        </header>
+        <Section>
+          <p>Answer:</p>
+          <p>{answer.content}</p>
+          <p>Correct/Wrong</p>
+        </Section>
+        <footer>
+        ID <Hyph /> {answer.id}. Submitted by <Hyph /> {answer.user_name}.
+        </footer>
       </>
     )
   }
 
   render() {
-    const {error, code} = this.context;
-    let content;
-    if (error) {
-      content = (error.error === `Code doesn't exist`)
-        ? <p className='red'>Code not found</p>
-        : <p className='red'>There was an error</p>
-    } else if (!code.id) {
-      content = <div className='loading' />
-    } else {
-      content = this.renderCode()
-    }
-
+    const {error} = this.state;
     return (
-      <Section className='CodePage'>
-        {content}
+      <Section className='AnswerPage'>
+        {error ? <p className='red'>There was an error, please try again</p> : this.renderAnswer()}
       </Section>
     )
   }
-}
-
-function CodeAuthor({code = nullCode}) {
-  return (
-    <span className='CodePage__author'>
-      {code.user_name}
-    </span>
-  )
-}
-
-function CodeContent({code  = nullCode}) {
-  return (
-    <p className='CodePage__content'>
-      {code.content}
-    </p>
-  )
 }

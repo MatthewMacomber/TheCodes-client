@@ -12,7 +12,7 @@ export default class AdminLogin extends Component {
 
   handleAdminLoginSuccess = () => {
     const {location, history} = this.props;
-    const destination = (location.state || {}).from || '/';
+    const destination = (location.state || {}).from || '/admin/panel';
     history.push(destination);
     this.props.login(true);
   }

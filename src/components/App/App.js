@@ -22,6 +22,8 @@ import HomePage from '../../routes/HomePage/HomePage';
 import UserHomePage from '../../routes/UserHomePage/UserHomePage';
 import UserCodesPage from '../../routes/UserCodesPage/UserCodesPage';
 import CreateCodePage from '../../routes/CreateCodePage/CreateCodePage';
+import UserAnswersPage from '../../routes/UserAnswersPage/UserAnswersPage';
+import AnswerPage from '../../routes/AnswerPage/AnswerPage';
 
 
 
@@ -77,6 +79,14 @@ class App extends Component {
             <PrivateRoutes
               path={'/userhome'}
               component={UserHomePage}
+            />
+            <PrivateRoutes
+              path={'/answers'}
+              component={UserAnswersPage}
+            />
+            <PrivateRoutes
+              path={'/answer/:answer_id'}
+              component={AnswerPage}
             />
             <PrivateRoutes
               path={'/create'}

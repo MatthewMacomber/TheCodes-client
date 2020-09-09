@@ -26,11 +26,11 @@ export default class Header extends Component {
         <Hyph />
         <Link
           to='/userhome'>
-          My Codes
+          My Home
         </Link>
         <Hyph />
         <Link
-          to='/'>
+          to='/answers'>
           My Answers
         </Link>
         <Hyph />

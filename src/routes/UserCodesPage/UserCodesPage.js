@@ -6,7 +6,7 @@ import CodeListItem from '../../components/CodeListItem/CodeListItem';
 import { Link } from 'react-router-dom';
 
 export default class UserCodesPage extends Component {
-  static defaultProps ={
+  static defaultProps = {
     match: {params: {}}
   }
 
