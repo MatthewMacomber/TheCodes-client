@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import AnswerApiService from '../../services/answer-api-service';
+import RequestApiService from '../../services/requests-api-service';
 import {NiceDate, Hyph, Section, Input} from '../../components/Utils/Utils';
 
 export default class AnswerPage extends Component {
@@ -10,7 +11,8 @@ export default class AnswerPage extends Component {
 
   state = {
     answer: null,
-    error: null
+    error: null,
+    verifySuccess: false,
   }
 
   setError = error => {
@@ -34,14 +36,21 @@ export default class AnswerPage extends Component {
       .catch(this.setError)
   }
 
-  verify() {
+  verify = () => {
     // TODO Handle submission of a answer verification request.
     console.log('submitted verification request.')
-    return null
+    const {answer_id} = this.props.match.params;
+    const request = {req_type: 'verify', content: `Please verify answer: ${answer_id}`}
+    RequestApiService.submitRequest(request)
+      .then(res => {
+        this.setState({verifySuccess: true})
+      })
+      .catch(this.setError)
   }
 
   renderAnswer() {
     const answer = this.state.answer
+    const verifySuccess = this.state.verifySuccess
     if (!answer) {
       return null
     }
@@ -57,6 +66,7 @@ export default class AnswerPage extends Component {
           <p>You Are:</p>
           <p>{answer.correct ? <>Correct. Congrats!</> : <>Wrong. Try Again?</>}</p>
           <Input type='button' value='Request Verification' onClick={this.verify}/>
+          {verifySuccess ? <p>Verification request submitted</p> : null}
         </Section>
         <footer>
         ID <Hyph /> {answer.id}. Submitted by <Hyph /> {answer.user_name}.

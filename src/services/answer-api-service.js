@@ -2,9 +2,10 @@ import TokenService from '../services/token-service';
 import config from '../config';
 
 const AnswerApiService = {
-  getAnswers() { //move to admin service, probably
+  getAnswers() { // TODO move to admin service, probably
     return null
   },
+
   getUserAnswers() {
     return fetch(`${config.API_ENDPOINT}/answers`, {
       headers: {
@@ -15,6 +16,7 @@ const AnswerApiService = {
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
   },
+
   getUserAnswer(answerId) {
     return fetch(`${config.API_ENDPOINT}/answers/${answerId}`, {
       headers: {
@@ -25,8 +27,8 @@ const AnswerApiService = {
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
   },
+  
   submitAnswer(answer) {
-    console.log(answer)
     return fetch(`${config.API_ENDPOINT}/answers`, {
       method: 'POST',
       headers: {

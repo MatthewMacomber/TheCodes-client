@@ -41,7 +41,6 @@ export default class UserAnswersPage extends Component {
         <h3>You have no answers yet. Go solve some codes!</h3>
       )
     } else {
-      console.log(answerList)
       return answerList.map(answer =>
         <AnswerListItem
           key={answer.id}
