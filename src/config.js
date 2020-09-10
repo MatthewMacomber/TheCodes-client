@@ -1,4 +1,4 @@
 export default {
-  API_ENDPOINT: 'http://192.168.0.6:8000/api',
-  TOKEN_KEY: 'just-my-generic-api-token-key'
+  API_ENDPOINT: 'https://warm-harbor-99058.herokuapp.com',
+  TOKEN_KEY: process.env.REACT_APP_API_KEY
 };
