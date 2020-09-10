@@ -82,8 +82,8 @@ function CodeAuthor({code = nullCode}) {
 
 function CodeContent({code  = nullCode}) {
   return (
-    <p className='CodePage__content'>
+    <blockquote className='CodePage__content'>
       {code.content}
-    </p>
+    </blockquote>
   )
 }

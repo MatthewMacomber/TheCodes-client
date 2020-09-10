@@ -12,7 +12,14 @@ export default class UserHomePage extends Component {
   }
 
   componentWillMount() {
-    const user_name = TokenService.getAuthToken()["subject"];
+    const token = TokenService.getAuthToken();
+    if (!token) {
+      return 'UserNameError'
+    }
+    const jwtData = token.split('.')[1];
+    const decodedJwtJson = window.atob(jwtData);
+    const decodedJwtData = JSON.parse(decodedJwtJson);
+    const user_name = decodedJwtData.sub;
     this.setState({
       user: {user_name},
     })
@@ -31,13 +38,13 @@ export default class UserHomePage extends Component {
           <div className="user-menu-item">
             <h2>Solve Codes</h2>
             <Link to="/codes">
-              <Button>Solve</Button>
+              <Button className='user-menu-button'>Solve</Button>
             </Link>
           </div>
           <div className="user-menu-item">
             <h2>Create Codes</h2>
-            <Link to="/create">{/* replace with users codes page that has a create code button on it. */}
-              <Button>Create</Button>
+            <Link to="/create">
+              <Button className='user-menu-button'>Create</Button>
             </Link>
           </div>
         </div>

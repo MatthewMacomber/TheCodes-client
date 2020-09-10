@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Input, Required} from '../Utils/Utils';
 import CodeApiService from '../../services/code-api-service';
+import './CreateCodeForm.css'
 
 export default class CreateCodeForm extends Component {
   static defaultProps = {
@@ -75,8 +76,10 @@ export default class CreateCodeForm extends Component {
             id='CreateCodeForm__the_answer'
           />
         </div>
-        <Button onClick={this.clearForm}>Clear</Button>
-        <Button type='submit'>Submit</Button>
+        <div className='CreateCodeFormButtons'>
+          <Button onClick={this.clearForm}>Clear</Button>
+          <Button type='submit'>Submit</Button>
+        </div>
       </form>
     )
   }

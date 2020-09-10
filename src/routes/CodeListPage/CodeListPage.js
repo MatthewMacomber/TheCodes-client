@@ -3,6 +3,7 @@ import CodeListContext from '../../contexts/CodeListContext';
 import CodeApiService from '../../services/code-api-service';
 import {Section} from '../../components/Utils/Utils';
 import CodeListItem from '../../components/CodeListItem/CodeListItem';
+import './CodeListPage.css';
 
 export default class CodeListPage extends Component {
   static defaultProps = {

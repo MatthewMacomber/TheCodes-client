@@ -9,16 +9,18 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <Section>
+        <Section className='main-img'>
           <img src="http://via.placeholder.com/300" alt="The Codes Homepage Placeholder"/>
         </Section>
-        <Section>
+        <Section className='main-buttons'>
           <Link to="/register">
             <Button>Register</Button>
           </Link>
           <Link to="/login">
             <Button>Login</Button>
           </Link>
+        </Section>
+        <Section className="welcome">
           <h3>Welcome to The Codes</h3>
           <p>
             Solve codes, win prizes, prove just how vast your

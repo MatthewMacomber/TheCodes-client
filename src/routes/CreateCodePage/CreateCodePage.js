@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CreateCodeForm from '../../components/CreateCodeForm/CreateCodeForm';
 import {Section} from '../../components/Utils/Utils';
+import './CreateCodePage.css';
 
 export default class CreateCodePage extends Component {
   static defaultProps = {

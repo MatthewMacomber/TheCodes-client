@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Section} from '../../components/Utils/Utils';
 import AnswerListItem from '../../components/AnswerListItem/AnswerListItem';
 import AnswerApiService from '../../services/answer-api-service';
+import './UserAnswersPage.css';
 
 export default class UserAnswersPage extends Component {
   static defaultProps = {
@@ -53,10 +54,14 @@ export default class UserAnswersPage extends Component {
   render() {
     const {error} = this.state;
     return (
-      <Section list className=''>
-        <h2>My Answers</h2>
-        {error ? <p className='red'>There was an error, please try agin</p> : this.renderAnswers()}
-      </Section>
+      <>
+        <div className='UserAnswersPageTitle'>
+          <h2>My Answers</h2>
+        </div>
+        <Section list className='UserAnswersPage'>
+          {error ? <p className='red'>There was an error, please try agin</p> : this.renderAnswers()}
+        </Section>
+      </>
     )
   }
 };

@@ -1,0 +1,11 @@
+main {
+  justify-content: center;
+}
+
+.RegisterPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  padding: 20px;
+}

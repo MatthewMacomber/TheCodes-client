@@ -1,0 +1,21 @@
+.user-home {
+  text-align: center;
+}
+
+.user-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.user-menu-item {
+  flex: 1 1 150px;
+  flex: 0 1 150px;
+  margin: 20px;
+  text-align: center;
+}
+
+.user-menu-button {
+  margin-top: 2em;
+}

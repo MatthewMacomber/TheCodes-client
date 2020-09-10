@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import {Section} from '../../components/Utils/Utils';
+import './RegisterPage.css';
 
 export default class RegisterPage extends Component {
   static defaultProps = {

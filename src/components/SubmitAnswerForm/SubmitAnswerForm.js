@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Required} from '../Utils/Utils';
 import AnswerApiService from '../../services/answer-api-service';
+import './SubmitAnswerForm.css';
 
 export default class SubmitAnswerForm extends Component {
   static defaultProps = {
