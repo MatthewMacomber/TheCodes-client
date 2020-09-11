@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import AdminApiService from '../../services/admin-api-service';
 import RequestApiService from '../../services/requests-api-service';
 import {Section} from '../../components/Utils/Utils';
-import RequestListItem from ''; // TODO add file path for RequestListItem
+import RequestListItem from '../../components/RequestListItem/RequestListItem';
 
 export default class RequestListPage extends Component {
   static defaultProps = {
