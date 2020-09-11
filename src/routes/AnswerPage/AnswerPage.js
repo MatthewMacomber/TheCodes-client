@@ -38,10 +38,9 @@ export default class AnswerPage extends Component {
   }
 
   verify = () => {
-    // TODO Handle submission of a answer verification request.
     console.log('submitted verification request.')
     const {answer_id} = this.props.match.params;
-    const request = {req_type: 'verify', content: `Please verify answer: ${answer_id}`}
+    const request = {req_type: 'verify', content: [answer_id, `Please verify answer: ${answer_id}`]}
     RequestApiService.submitRequest(request)
       .then(res => {
         this.setState({verifySuccess: true})

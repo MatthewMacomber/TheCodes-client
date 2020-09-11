@@ -47,7 +47,7 @@ export default class UserListPage extends Component {
     const {error} = this.state;
     return (
       <Section list className='UserListPage'>
-        <p>UserList:</p>
+        <p>User List:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderUsers()}
       </Section>
     )

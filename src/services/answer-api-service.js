@@ -2,10 +2,6 @@ import TokenService from '../services/token-service';
 import config from '../config';
 
 const AnswerApiService = {
-  getAnswers() { // TODO move to admin service, probably
-    return null
-  },
-
   getUserAnswers() {
     return fetch(`${config.API_ENDPOINT}/answers`, {
       headers: {

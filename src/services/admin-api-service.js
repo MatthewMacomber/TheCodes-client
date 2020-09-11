@@ -21,6 +21,16 @@ const AdminApiService = {
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
       )
+  },
+  getAnswers() {
+    return fetch(`${config.API_ENDPOINT}/answers/list`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res => 
+        (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
   }
 }
 
