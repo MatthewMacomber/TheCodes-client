@@ -12,13 +12,8 @@ export default class HomePage extends Component {
         <Section className='main-img'>
           <img src="http://via.placeholder.com/300" alt="The Codes Homepage Placeholder"/>
         </Section>
-        <Section className='main-buttons'>
-          <Link to="/register">
-            <Button>Register</Button>
-          </Link>
-          <Link to="/login">
-            <Button>Login</Button>
-          </Link>
+        <Section>
+          <hr/>{/* TODO Add login and register buttons that only appear if a user is not logged in. */}
         </Section>
         <Section className="welcome">
           <h3>Welcome to The Codes</h3>
