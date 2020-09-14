@@ -18,7 +18,7 @@ const AuthApiService = {
       .then(res => {
         TokenService.saveAuthToken(res.authToken);
         return res;
-      })
+      });
   },
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/users`, {
@@ -30,7 +30,7 @@ const AuthApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   }
 };
 
