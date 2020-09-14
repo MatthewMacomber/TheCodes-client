@@ -15,12 +15,12 @@ import RequestListItem from '../../components/RequestListItem/RequestListItem';
 export default class AdminPage extends Component {
   static defaultProps ={
     match: {params: {}}
-  }
+  };
 
   state = {
     content: [],
     user: null
-  }
+  };
 
   renderAdmin() {
     return (
@@ -57,71 +57,71 @@ export default class AdminPage extends Component {
           </button>
         </form>
       </>
-    )
-  }
+    );
+  };
 
   renderCodes = () => {
     this.setState({
       content: <CodeListPage />
-    })
-  }
+    });
+  };
 
   renderUserList = () => {
     this.setState({
       content: <UserListPage />
-    })
-  }
+    });
+  };
 
   renderUser = e => {
     e.preventDefault();
     const {user_id} = e.target;
     AdminApiService.getUser(parseInt(user_id.value))
-      .then(res => this.setUser(res))
-  }
+      .then(res => this.setUser(res));
+  };
 
   setUser = user => {
     this.setState({
       content: <UserListItem user={user} />
-    })
-  }
+    });
+  };
 
   renderAnswerList = () => {
     this.setState({
       content: <AnswerListPage />
-    })
-  }
+    });
+  };
 
   renderAnswer = e => {
     e.preventDefault();
     const {answer_id} = e.target;
     AnswerApiService.getUserAnswer(answer_id.value)
-      .then(res => this.setAnswer(res))
-  }
+      .then(res => this.setAnswer(res));
+  };
 
   setAnswer = answer => {
     this.setState({
       content: <AnswerListItem answer={answer} />
-    })
-  }
+    });
+  };
 
   renderRequestsList = () => {
     this.setState({
       content: <RequestListPage />
-    })
-  }
+    });
+  };
 
   renderRequest = e => {
     e.preventDefault();
     const {request_id} = e.target;
     RequestApiService.getRequest(request_id.value)
-      .then(res => this.setRequest(res))
-  }
+      .then(res => this.setRequest(res));
+  };
 
   setRequest = request => {
     this.setState({
       content: <RequestListItem request={request} />
-    })
-  }
+    });
+  };
 
   render() {
     const {error} = this.context;
@@ -131,6 +131,6 @@ export default class AdminPage extends Component {
         {this.renderAdmin()}
         {error ? <p className='red'>There was an error, please try again</p> : content}
       </Section>
-    )
-  }
-}
+    );
+  };
+};

@@ -6,7 +6,7 @@ import './RegisterForm.css';
 export default class RegisterForm extends Component {
   static defaultProps = {
     onRegisterSuccess: () => {}
-  }
+  };
 
   state = {error: null};
 
@@ -27,7 +27,7 @@ export default class RegisterForm extends Component {
       user_name.value = '';
       password.value = '';
       this.props.onRegisterSuccess();
-    })
+    });
   };
 
   render() {
@@ -85,6 +85,6 @@ export default class RegisterForm extends Component {
           Register
         </Button>
       </form>
-    )
-  }
-}
+    );
+  };
+};

@@ -8,7 +8,7 @@ import './CodeListPage.css';
 export default class CodeListPage extends Component {
   static defaultProps = {
     match: { params: {} }
-  }
+  };
   
   static contextType = CodeListContext;
 
@@ -16,8 +16,8 @@ export default class CodeListPage extends Component {
     this.context.clearError();
     CodeApiService.getCodes()
       .then(res => this.context.setCodeList(res))
-      .catch(this.context.setError)
-  }
+      .catch(this.context.setError);
+  };
 
   renderCodes() {
     const {codeList = []} = this.context;
@@ -26,8 +26,8 @@ export default class CodeListPage extends Component {
         key={code.id}
         code={code}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.context;
@@ -35,6 +35,6 @@ export default class CodeListPage extends Component {
       <Section list className='CodeListPage'>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderCodes()}
       </Section>
-    )
-  }
-}
+    );
+  };
+};

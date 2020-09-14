@@ -6,32 +6,31 @@ import AnswerListItem from '../../components/AnswerListItem/AnswerListItem';
 export default class AnswerListPage extends Component {
   static defaultProps = {
     match: { params: {} }
-  }
+  };
 
   state = {
     answerList: [],
     error: null
-  }
+  };
 
   setError = error => {
-    console.log(error)
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   setAnswerList = answerList => {
-    this.setState({answerList})
-  }
+    this.setState({answerList});
+  };
 
   componentDidMount() {
     this.clearError();
     AdminApiService.getAnswers()
       .then(res => this.setAnswerList(res))
-      .catch(this.setError)
-  }
+      .catch(this.setError);
+  };
 
   renderAnswers() {
     const answerList = this.state.answerList;
@@ -40,8 +39,8 @@ export default class AnswerListPage extends Component {
         key={answer.id}
         answer={answer}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.state;
@@ -50,6 +49,6 @@ export default class AnswerListPage extends Component {
         <p>Answer List:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderAnswers()}
       </Section>
-    )
-  }
-}
+    );
+  };
+};

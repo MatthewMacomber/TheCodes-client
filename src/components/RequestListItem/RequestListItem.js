@@ -20,6 +20,6 @@ export default class RequestListItem extends Component {
           Request ID <Hyph /> {request.id}
         </footer>
       </Section>
-    )
-  }
-}
+    );
+  };
+};

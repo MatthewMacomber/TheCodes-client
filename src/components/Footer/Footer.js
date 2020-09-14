@@ -10,6 +10,6 @@ export default class Footer extends Component {
           The Codes <Hyph /> Copyright 2020 Matthew Macomber
         </p>
       </>
-    )
-  }
-}
+    );
+  };
+};

@@ -8,21 +8,21 @@ import './CodePage.css';
 export default class CodePage extends Component {
   static defaultProps = {
     match: {params: {}}
-  }
+  };
 
-  static contextType = CodeContext
+  static contextType = CodeContext;
 
   componentDidMount() {
     const {codeId} = this.props.match.params;
     this.context.clearError();
     CodeApiService.getCode(codeId)
       .then(this.context.setCode)
-      .catch(this.context.setError)
-  }
+      .catch(this.context.setError);
+  };
 
   componentWillMount() {
-    this.context.clearCode()
-  }
+    this.context.clearCode();
+  };
 
   handleSubmitAnswerSuccess = answer => {
     const {history} = this.props;
@@ -30,7 +30,7 @@ export default class CodePage extends Component {
   }
 
   renderCode() {
-    const {code} = this.context
+    const {code} = this.context;
     return (
       <>
         <h3>Viewing:</h3>
@@ -48,8 +48,8 @@ export default class CodePage extends Component {
           <SubmitAnswerForm onSubmitAnswerSuccess={this.handleSubmitAnswerSuccess} code_id={code.id}/>
         </div>
       </>
-    )
-  }
+    );
+  };
 
   render() {
     const {error, code} = this.context;
@@ -59,31 +59,31 @@ export default class CodePage extends Component {
         ? <p className='red'>Code not found</p>
         : <p className='red'>There was an error</p>
     } else if (!code.id) {
-      content = <div className='loading' />
+      content = <div className='loading' />;
     } else {
-      content = this.renderCode()
+      content = this.renderCode();
     }
 
     return (
       <Section className='CodePage'>
         {content}
       </Section>
-    )
-  }
-}
+    );
+  };
+};
 
 function CodeAuthor({code = nullCode}) {
   return (
     <span className='CodePage__author'>
       {code.user_name}
     </span>
-  )
-}
+  );
+};
 
 function CodeContent({code  = nullCode}) {
   return (
     <blockquote className='CodePage__content'>
       {code.content}
     </blockquote>
-  )
-}
+  );
+};

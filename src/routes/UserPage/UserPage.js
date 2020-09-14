@@ -5,38 +5,37 @@ import {NiceDate, Hyph, Section} from '../../components/Utils/Utils';
 export default class UserPage extends Component {
   static defaultProps = {
     match: {params: {}}
-  }
+  };
 
   state = {
     user: null,
     error: null
-  }
+  };
 
   setError = error => {
-    console.log(error)
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   setUser = user => {
-    this.setState({user})
-  }
+    this.setState({user});
+  };
 
   componentDidMount() {
     const {user_id} = this.props.match.params;
     this.clearError();
     AdminApiService.getUser(user_id)
       .then(res => this.setUser(res))
-      .catch(this.setError)
-  }
+      .catch(this.setError);
+  };
 
   renderUser = () => {
     const user = this.state.user;
     if (!user) {
-      return null
+      return null;
     }
     return (
       <>
@@ -53,8 +52,8 @@ export default class UserPage extends Component {
           User ID <Hyph /> {user.id}
         </footer>
       </>
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.state;
@@ -62,6 +61,6 @@ export default class UserPage extends Component {
       <>
         {error ? <p className="red">There was an error, please try again.</p> : this.renderUser()}
       </>
-    )
-  }
-}
+    );
+  };
+};

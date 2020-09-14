@@ -6,32 +6,31 @@ import UserListItem from '../../components/UserListItem/UserListItem';
 export default class UserListPage extends Component {
   static defaultProps = {
     match: { params: {} }
-  }
+  };
 
   state = {
     userList: [],
     error: null
-  }
+  };
   
   setError = error => {
-    console.log(error)
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   setUserList = userList => {
-    this.setState({userList})
-  }
+    this.setState({userList});
+  };
 
   componentDidMount() {
     this.clearError();
     AdminApiService.getUsers()
       .then(res => this.setUserList(res))
-      .catch(this.setError)
-  }
+      .catch(this.setError);
+  };
 
   renderUsers() {
     const userList = this.state.userList;
@@ -40,8 +39,8 @@ export default class UserListPage extends Component {
         key={user.id}
         user={user}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.state;
@@ -50,6 +49,6 @@ export default class UserListPage extends Component {
         <p>User List:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderUsers()}
       </Section>
-    )
-  }
+    );
+  };
 }

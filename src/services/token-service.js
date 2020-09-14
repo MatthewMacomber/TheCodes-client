@@ -22,9 +22,9 @@ const TokenService = {
     let decodedJwtJson = window.atob(jwtData);
     let decodedJwtData = JSON.parse(decodedJwtJson);
     if (decodedJwtData.role !== 'admin') {
-      return false
+      return false;
     }
-    return true
+    return true;
   },
   makeBasicAuthToken(userName, password) {
     return window.btoa(`${userName}:${password}`);

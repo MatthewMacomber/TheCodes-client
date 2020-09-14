@@ -31,18 +31,17 @@ class App extends Component {
   state = {
     hasError: false,
     loggedIn: false
-  }
+  };
 
   static getDerivedStateFromError(error) {
-    console.log(error)
-    return {hasError: true}
-  }
+    return {hasError: true};
+  };
 
   login = loginState => {
     this.setState({
       loggedIn: loginState
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -118,8 +117,8 @@ class App extends Component {
           <Footer />
         </footer>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default App;

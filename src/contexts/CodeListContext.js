@@ -6,7 +6,7 @@ const CodeListContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   setCodeList: () => {}
-})
+});
 
 export default CodeListContext;
 
@@ -14,20 +14,19 @@ export class CodeListProvider extends Component {
   state = {
     codeList: [],
     error: null
-  }
+  };
 
   setCodeList = codeList => {
-    this.setState({codeList})
-  }
+    this.setState({codeList});
+  };
 
   setError = error => {
-    console.log(error)
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   render() {
     const value = {
@@ -41,6 +40,6 @@ export class CodeListProvider extends Component {
       <CodeListContext.Provider value={value}>
         {this.props.children}
       </CodeListContext.Provider>
-    )
-  }
-}
+    );
+  };
+};

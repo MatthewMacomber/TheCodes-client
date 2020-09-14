@@ -22,6 +22,6 @@ export default class AnswerListItem extends Component {
           </footer>
         </div>
       </Link>
-    )
-  }
-}
+    );
+  };
+};

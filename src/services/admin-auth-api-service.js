@@ -8,7 +8,7 @@ const AuthApiService = {
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ user_name, password }),
+      body: JSON.stringify({ user_name, password })
     })
       .then(res =>
         (!res.ok)
@@ -16,9 +16,9 @@ const AuthApiService = {
           : res.json()
       )
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
-        return res
-      })
+        TokenService.saveAuthToken(res.authToken);
+        return res;
+      });
     }
 };
 

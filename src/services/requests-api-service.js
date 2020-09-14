@@ -10,7 +10,7 @@ const RequestApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
 
   getRequest(id) {
@@ -21,7 +21,7 @@ const RequestApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
 
   deleteRequest(id) {
@@ -33,11 +33,10 @@ const RequestApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
   
   submitRequest(request) {
-    console.log(request)
     return fetch(`${config.API_ENDPOINT}/requests`, {
       method: 'POST',
       headers: {
@@ -48,7 +47,7 @@ const RequestApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   }
 };
 

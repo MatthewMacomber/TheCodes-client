@@ -8,7 +8,7 @@ export default class RegisterPage extends Component {
     history: {
       push: () => {}
     }
-  }
+  };
 
   handlerRegisterSuccess = user => {
     const {history} = this.props;

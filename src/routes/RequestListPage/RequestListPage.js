@@ -6,32 +6,31 @@ import RequestListItem from '../../components/RequestListItem/RequestListItem';
 export default class RequestListPage extends Component {
   static defaultProps = {
     match: { params: {} }
-  }
+  };
 
   state =  {
     requestList: [],
     error: null
-  }
+  };
 
   setError = error => {
-    console.log(error)
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   setRequestList = requestList => {
-    this.setState({requestList})
-  }
+    this.setState({requestList});
+  };
 
   componentDidMount() {
     this.clearError();
     RequestApiService.getRequests()
       .then(res => this.setRequestList(res))
-      .catch(this.setError)
-  }
+      .catch(this.setError);
+  };
 
   renderRequests() {
     const requestList = this.state.requestList;
@@ -40,8 +39,8 @@ export default class RequestListPage extends Component {
         key={request.id}
         request={request}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.state;
@@ -50,6 +49,6 @@ export default class RequestListPage extends Component {
         <p>Answer List:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderRequests()}
       </Section>
-    )
-  }
-}
+    );
+  };
+};

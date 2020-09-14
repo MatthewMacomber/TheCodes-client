@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 export const nullCode = {
   user_id: {},
-}
+};
 
 const CodeContext = React.createContext({
   code: nullCode,
@@ -11,7 +11,7 @@ const CodeContext = React.createContext({
   clearError: () => {},
   setCode: () => {},
   clearCode: () => {}
-})
+});
 
 export default CodeContext;
 
@@ -19,25 +19,23 @@ export class CodeProvider extends Component {
   state = {
     code: nullCode,
     error: null
-  }
+  };
 
   setError = error => {
-    console.log(error);
-    this.setState({error})
-  }
+    this.setState({error});
+  };
 
   clearError = () => {
-    this.setState({error: null})
-  }
+    this.setState({error: null});
+  };
 
   setCode = code => {
-    console.log(code);
-    this.setState({code})
-  }
+    this.setState({code});
+  };
 
   clearCode = () => {
-    this.setCode(nullCode)
-  }
+    this.setCode(nullCode);
+  };
 
   render() {
     const value = {
@@ -47,12 +45,12 @@ export class CodeProvider extends Component {
       clearError: this.clearError,
       setCode: this.setCode,
       clearCode: this.clearCode
-    }
+    };
 
     return (
       <CodeContext.Provider value={value}>
         {this.props.children}
       </CodeContext.Provider>
-    )
-  }
-}
+    );
+  };
+};

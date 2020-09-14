@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Section, Button} from '../../components/Utils/Utils';
+import {Section} from '../../components/Utils/Utils';
 import './HomePage.css';
 
 export default class HomePage extends Component {
-
-
   render() {
     return (
       <div>
@@ -23,6 +20,6 @@ export default class HomePage extends Component {
           </p>
         </Section>
       </div>
-    )
-  }
-}
+    );
+  };
+};

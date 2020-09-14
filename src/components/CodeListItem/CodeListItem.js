@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {NiceDate, Hyph} from '../Utils/Utils';
-import './CodeListItem.css'
+import './CodeListItem.css';
 
 export default class CodeListItem extends Component {
   render() {
@@ -25,9 +25,9 @@ export default class CodeListItem extends Component {
           </footer>
         </div>
       </Link>
-    )
-  }
-}
+    );
+  };
+};
 
 function CodeDate({code}) {
   return (
@@ -36,13 +36,13 @@ function CodeDate({code}) {
         date={code.date_created}
       />
     </span>
-  )
-}
+  );
+};
 
 function CodeAuthor({code}) {
   return (
     <span className='CodeListItem__author'>
       {code.user_name}
     </span>
-  )
-}
+  );
+};

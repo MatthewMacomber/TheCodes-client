@@ -8,12 +8,12 @@ export default class CreateCodePage extends Component {
     history: {
       push: () => {}
     }
-  }
+  };
 
   handleCreateCodeSuccess = code => {
     const {history} = this.props;
     history.push(`/code/${code.id}`);
-  }
+  };
 
   render() {
     return (
@@ -23,6 +23,6 @@ export default class CreateCodePage extends Component {
           onCreateCodeSuccess={this.handleCreateCodeSuccess}
         />
       </Section>
-    )
-  }
-}
+    );
+  };
+};

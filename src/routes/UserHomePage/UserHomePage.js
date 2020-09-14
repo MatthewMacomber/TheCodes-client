@@ -9,12 +9,12 @@ export default class UserHomePage extends Component {
     user: {
       user_name: ''
     }
-  }
+  };
 
   componentWillMount() {
     const token = TokenService.getAuthToken();
     if (!token) {
-      return 'UserNameError'
+      return 'UserNameError';
     }
     const jwtData = token.split('.')[1];
     const decodedJwtJson = window.atob(jwtData);
@@ -22,8 +22,8 @@ export default class UserHomePage extends Component {
     const user_name = decodedJwtData.sub;
     this.setState({
       user: {user_name},
-    })
-  }
+    });
+  };
 
   render() {
     const user = this.state.user;
@@ -49,6 +49,6 @@ export default class UserHomePage extends Component {
           </div>
         </div>
       </Section>
-    )
-  }
-}
+    );
+  };
+};

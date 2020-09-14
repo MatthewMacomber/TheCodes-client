@@ -17,6 +17,6 @@ export default class UserListItem extends Component {
           User ID <Hyph /> {user.id}
         </footer>
       </Link>
-    )
-  }
-}
+    );
+  };
+};

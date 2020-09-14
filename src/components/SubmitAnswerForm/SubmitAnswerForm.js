@@ -6,16 +6,15 @@ import './SubmitAnswerForm.css';
 export default class SubmitAnswerForm extends Component {
   static defaultProps = {
     onSubmitAnswerSuccess: () => {}
-  }
+  };
 
   state = {error: null};
 
   handleSubmit = ev => {
     ev.preventDefault();
     const  {the_answer} = ev.target;
-    console.log(`${the_answer}`)
     
-    this.setState({error: null})
+    this.setState({error: null});
     AnswerApiService.submitAnswer({
       the_answer: the_answer.value,
       code_id: this.props.code_id
@@ -23,12 +22,12 @@ export default class SubmitAnswerForm extends Component {
     .then(answer => {
       the_answer.value = '';
       this.props.onSubmitAnswerSuccess(answer);
-    })
-  }
+    });
+  };
 
   clearForm = () => {
     document.getElementById('submit-answer-form').reset();
-  }
+  };
 
   render() {
     const {error} = this.state;
@@ -52,6 +51,6 @@ export default class SubmitAnswerForm extends Component {
         <Button onClick={this.clearForm}>Clear</Button>
         <Button type='submit'>Submit</Button>
       </form>
-    )
-  }
-}
+    );
+  };
+};

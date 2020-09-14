@@ -16,6 +16,6 @@ ReactDOM.render(
     </CodeListProvider>
   </BrowserRouter>,
   document.getElementById('root')
-)
+);
 
 serviceWorker.unregister();

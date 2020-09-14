@@ -9,7 +9,7 @@ import './UserCodesPage.css'
 export default class UserCodesPage extends Component {
   static defaultProps = {
     match: {params: {}}
-  }
+  };
 
   static contextType = CodeListContext;
 
@@ -17,8 +17,8 @@ export default class UserCodesPage extends Component {
     this.context.clearError();
     CodeApiService.getUserCodes()
       .then(res => this.context.setCodeList(res))
-      .catch(this.context.setError)
-  }
+      .catch(this.context.setError);
+  };
 
   renderCodes() {
     const {codeList = []} = this.context;
@@ -27,8 +27,8 @@ export default class UserCodesPage extends Component {
         key={code.id}
         code={code}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {error} = this.context;
@@ -45,6 +45,6 @@ export default class UserCodesPage extends Component {
         </Section>
         
       </Section>
-    )
-  }
-}
+    );
+  };
+};

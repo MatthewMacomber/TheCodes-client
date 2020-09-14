@@ -15,7 +15,7 @@ export default class AdminLogin extends Component {
     const destination = (location.state || {}).from || '/admin/panel';
     history.push(destination);
     this.props.login(true);
-  }
+  };
   
   render() {
     return (
@@ -25,6 +25,6 @@ export default class AdminLogin extends Component {
           onLoginSuccess={this.handleAdminLoginSuccess}
         />
       </Section>
-    )
-  }
-}
+    );
+  };
+};

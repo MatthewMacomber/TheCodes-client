@@ -10,7 +10,7 @@ const AnswerApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
 
   getUserAnswer(answerId) {
@@ -21,7 +21,7 @@ const AnswerApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
   
   submitAnswer(answer) {
@@ -35,8 +35,8 @@ const AnswerApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   }
-}
+};
 
 export default AnswerApiService;

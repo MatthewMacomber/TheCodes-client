@@ -6,16 +6,15 @@ import './CreateCodeForm.css'
 export default class CreateCodeForm extends Component {
   static defaultProps = {
     onCodeCreateSuccess: () => {}
-  }
+  };
 
   state = {error: null};
 
   handleSubmit = ev => {
     ev.preventDefault();
     const  {code_name, the_code, the_answer} = ev.target;
-    console.log(`${code_name.value} : ${the_code.value} : ${the_answer.value}`)
     
-    this.setState({error: null})
+    this.setState({error: null});
     CodeApiService.postCode({
       code_name: code_name.value,
       the_code: the_code.value,
@@ -26,13 +25,12 @@ export default class CreateCodeForm extends Component {
         the_code.value = '';
         the_answer.value = '';
         this.props.onCodeCreateSuccess(code);
-        console.log(code)
-      })
-  }
+      });
+  };
 
   clearForm = () => {
     document.getElementById('create-code-form').reset();
-  }
+  };
 
   render() {
     const {error} = this.state;
@@ -81,6 +79,6 @@ export default class CreateCodeForm extends Component {
           <Button type='submit'>Submit</Button>
         </div>
       </form>
-    )
-  }
-}
+    );
+  };
+};

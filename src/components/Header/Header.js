@@ -8,25 +8,25 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     this.props.login(false);
-  }
+  };
 
   componentDidMount() {
     if (TokenService.hasAuthToken()) {
       this.props.login(true);
     }
-  }
+  };
 
   loadUsername() {
     const token = TokenService.getAuthToken();
     if (!token) {
-      return 'UserNameError'
+      return 'UserNameError';
     }
     const jwtData = token.split('.')[1];
     const decodedJwtJson = window.atob(jwtData);
     const decodedJwtData = JSON.parse(decodedJwtJson);
     const user_name = decodedJwtData.sub;
     return user_name;
-  }
+  };
 
   renderLogoutLink() {
     return (
@@ -54,8 +54,8 @@ export default class Header extends Component {
         <Hyph />
         {this.loadUsername()}
       </div>
-    )
-  }
+    );
+  };
 
   renderLoginLink() {
     return (
@@ -75,8 +75,8 @@ export default class Header extends Component {
           Log in
         </Link>
       </div>
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -88,6 +88,6 @@ export default class Header extends Component {
         </h1>
         {this.props.loggedIn ? this.renderLogoutLink() : this.renderLoginLink()}
       </nav>
-    )
-  }
-}
+    );
+  };
+};

@@ -8,7 +8,7 @@ const CodeApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
   getCode(codeId) {
     return fetch(`${config.API_ENDPOINT}/codes/${codeId}`, {
@@ -18,7 +18,7 @@ const CodeApiService = {
     })
       .then(res => 
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
   getUserCodes() {
     return fetch(`${config.API_ENDPOINT}/codes/usercodes`, {
@@ -28,10 +28,9 @@ const CodeApiService = {
     })
       .then(res =>
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   },
   postCode(code) {
-    console.log(code)
     return fetch(`${config.API_ENDPOINT}/codes/usercodes`, {
       method: 'POST',
       headers: {
@@ -42,8 +41,8 @@ const CodeApiService = {
     })
       .then(res =>
         (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+      );
   }
-}
+};
 
 export default CodeApiService;

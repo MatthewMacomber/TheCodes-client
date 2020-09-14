@@ -6,9 +6,9 @@ import AdminAuthApiService from '../../services/admin-auth-api-service';
 export default class AdminLoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {}
-  }
+  };
 
-  state = {error: null}
+  state = {error: null};
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
@@ -27,8 +27,8 @@ export default class AdminLoginForm extends Component {
       })
       .catch(res => {
         this.setState({error: res.error});
-      })
-  }
+      });
+  };
 
   render() {
     const {error} = this.state;
@@ -64,6 +64,6 @@ export default class AdminLoginForm extends Component {
           Login
         </Button>
       </form>
-    )
-  }
+    );
+  };
 };
