@@ -7,6 +7,8 @@ import {CodeProvider} from './contexts/CodeContext';
 import App from './components/App/App';
 import './index.css';
 
+document.title = 'The Codes';
+
 ReactDOM.render(
   <BrowserRouter>
     <CodeListProvider>
