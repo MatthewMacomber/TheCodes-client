@@ -26,6 +26,7 @@ export default class AnswerListItem extends Component {
     })
       .then(this.setAnswerImage);
   };
+  
   render() {
     const {answer} = this.props;
     let answerImage = this.state.answerImage;

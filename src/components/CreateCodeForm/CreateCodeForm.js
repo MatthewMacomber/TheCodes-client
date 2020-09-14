@@ -25,6 +25,9 @@ export default class CreateCodeForm extends Component {
         the_code.value = '';
         the_answer.value = '';
         this.props.onCodeCreateSuccess(code);
+      })
+      .catch(res => {
+        this.setState({error: res.error});
       });
   };
 
@@ -35,50 +38,53 @@ export default class CreateCodeForm extends Component {
   render() {
     const {error} = this.state;
     return (
-      <form className='CreateCodeForm' onSubmit={this.handleSubmit} id='create-code-form'>
+      <>
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='code_name'>
-          <label htmlFor='CreateCodeForm__code_name'>
-            Name <Required />
-          </label>
-          <Input
-            name='code_name'
-            type='text'
-            required
-            placeholder='Super Code'
-            id='CreateCodeForm__code_name'
-          />
-        </div>
-        <div className='the_code'>
-          <label htmlFor='CreateCodeForm__the_code'>
-            Code <Required />
-          </label>
-          <textarea
-            name='the_code'
-            required
-            placeholder='Uryyb Jbeyq!'
-            id='CreateCodeForm__the_code'
-          />
-        </div>
-        <div className='the_answer'>
-          <label htmlFor='CreateCodeForm__the_answer'>
-            Answer <Required />
-          </label>
-          <textarea
-            name='the_answer'
-            type='textarea'
-            required
-            placeholder='Hello World!'
-            id='CreateCodeForm__the_answer'
-          />
-        </div>
-        <div className='CreateCodeFormButtons'>
-          <Button onClick={this.clearForm}>Clear</Button>
-          <Button type='submit'>Submit</Button>
-        </div>
-      </form>
+        <form className='CreateCodeForm' onSubmit={this.handleSubmit} id='create-code-form'>
+          
+          <div className='code_name'>
+            <label htmlFor='CreateCodeForm__code_name'>
+              Name <Required />
+            </label>
+            <Input
+              name='code_name'
+              type='text'
+              required
+              placeholder='Super Code'
+              id='CreateCodeForm__code_name'
+            />
+          </div>
+          <div className='the_code'>
+            <label htmlFor='CreateCodeForm__the_code'>
+              Code <Required />
+            </label>
+            <textarea
+              name='the_code'
+              required
+              placeholder='Uryyb Jbeyq!'
+              id='CreateCodeForm__the_code'
+            />
+          </div>
+          <div className='the_answer'>
+            <label htmlFor='CreateCodeForm__the_answer'>
+              Answer <Required />
+            </label>
+            <textarea
+              name='the_answer'
+              type='textarea'
+              required
+              placeholder='Hello World!'
+              id='CreateCodeForm__the_answer'
+            />
+          </div>
+          <div className='CreateCodeFormButtons'>
+            <Button onClick={this.clearForm}>Clear</Button>
+            <Button type='submit'>Submit</Button>
+          </div>
+        </form>
+      </>
     );
   };
 };

@@ -12,7 +12,7 @@ export default class UserAnswersPage extends Component {
   state = {
     answerList: [],
     error: null
-  }
+  };
   
   setError = error => {
     this.setState({error});

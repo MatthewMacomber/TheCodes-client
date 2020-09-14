@@ -19,10 +19,13 @@ export default class SubmitAnswerForm extends Component {
       the_answer: the_answer.value,
       code_id: this.props.code_id
     })
-    .then(answer => {
-      the_answer.value = '';
-      this.props.onSubmitAnswerSuccess(answer);
-    });
+      .then(answer => {
+        the_answer.value = '';
+        this.props.onSubmitAnswerSuccess(answer);
+      })
+      .catch(res => {
+        this.setState({error: res.error});
+      });
   };
 
   clearForm = () => {
@@ -32,25 +35,28 @@ export default class SubmitAnswerForm extends Component {
   render() {
     const {error} = this.state;
     return (
-      <form className='SubmitAnswerForm' onSubmit={this.handleSubmit} id='submit-answer-form'>
+      <>
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='the_answer'>
-          <label htmlFor='SubmitAnswerForm__the_answer'>
-            Answer <Required />
-          </label>
-          <textarea
-            name='the_answer'
-            type='textarea'
-            required
-            placeholder='Hello World!'
-            id='SubmitAnswerForm__the_answer'
-          />
-        </div>
-        <Button onClick={this.clearForm}>Clear</Button>
-        <Button type='submit'>Submit</Button>
-      </form>
+        <form className='SubmitAnswerForm' onSubmit={this.handleSubmit} id='submit-answer-form'>
+          
+          <div className='the_answer'>
+            <label htmlFor='SubmitAnswerForm__the_answer'>
+              Answer <Required />
+            </label>
+            <textarea
+              name='the_answer'
+              type='textarea'
+              required
+              placeholder='Hello World!'
+              id='SubmitAnswerForm__the_answer'
+            />
+          </div>
+          <Button onClick={this.clearForm}>Clear</Button>
+          <Button type='submit'>Submit</Button>
+        </form>
+      </>
     );
   };
 };

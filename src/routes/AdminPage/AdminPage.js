@@ -114,7 +114,10 @@ export default class AdminPage extends Component {
     e.preventDefault();
     const {request_id} = e.target;
     RequestApiService.getRequest(request_id.value)
-      .then(res => this.setRequest(res));
+      .then(res => this.setRequest(res))
+      .catch(res => {
+        this.setState({error: res.error});
+      });
   };
 
   setRequest = request => {
