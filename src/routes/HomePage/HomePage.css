@@ -18,3 +18,11 @@
   padding-left: 5%;
   padding-right: 5%;
 }
+
+.welcome > h3 {
+  font-size: x-large;
+}
+
+.welcome > p {
+  font-size: larger;
+}

@@ -11,5 +11,5 @@
 main {
   display: flex;
   flex-direction: column;
-  background: lightcoral;
+  background: rgb(133, 28, 252);
 }
