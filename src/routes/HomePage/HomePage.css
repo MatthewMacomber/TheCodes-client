@@ -24,10 +24,19 @@
 }
 
 .welcome > p {
-  font-size: larger;
+  font-size: x-large;
 }
 
 .home-image {
   width: 450px;
   height: 500px;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  box-shadow: 0 0 10px 1px black;
+}
+hr:after {
+  content: "\00a0";  /* Prevent margin collapse */
 }

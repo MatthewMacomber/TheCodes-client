@@ -24,7 +24,7 @@ export default class HomePage extends Component {
       lineHeight: 55,
       textAlign: 'center',
       bgColor: '#00000020',
-      textColor: '#8D021F'
+      textColor: '#c7003e'
     })
       .then(this.setHomeImage);
     
@@ -34,7 +34,7 @@ export default class HomePage extends Component {
       lineHeight: 55,
       textAlign: 'center',
       bgColor: '#00000020',
-      textColor: '#8D021F'
+      textColor: '#c7003e'
     })
       .then(this.setHomeAltImage)
   };
