@@ -1,17 +1,21 @@
 .App__header {
   display: flex;
   flex-direction: column;
-  padding-top: 1em;
+  padding-top: 0;
+  margin-top: 0;
   background: rgb(22, 193, 250);
 }
 
 .App__header > h1 {
   text-align: center;
-  margin: 0%;
+  margin: 0;
+  padding-top: 0;
   margin-bottom: 10px;
 }
 
 .logo {
+  position: relative;
+  top: -5px;
   text-decoration: none;
   color: #e0dfdc;
   background: rgb(22, 193, 250);
@@ -26,9 +30,8 @@
   list-style-type: none;
   overflow: hidden;
   background-color: #333;
-  padding-left: 0;
-  margin-left: 0;
-  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .App__header > ul li {
@@ -39,7 +42,7 @@
   display: block;
   color: white;
   text-align: center;
-  padding: 1em 0.5em;
+  padding: 1.4em 1em;
   text-decoration: none;
 }
 
@@ -60,6 +63,10 @@
   .App__header > h1 {
     padding-left: 10px;
     padding-top: 15px;
+  }
+
+  .logo {
+    top: -10px;
   }
 
   .App__header > ul {
