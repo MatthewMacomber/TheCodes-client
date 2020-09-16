@@ -1,10 +1,83 @@
-.Header {
+.App__header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 0;
-  padding-left: 2%;
-  padding-right: 2%;
-  align-items: center;
+  flex-direction: column;
+  padding-top: 1em;
   background: rgb(22, 193, 250);
+}
+
+.App__header > h1 {
+  text-align: center;
+  margin: 0%;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+}
+
+/* Custop nav menu styling start. */
+.App__header > ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333;
+  padding-left: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.App__header > ul li {
+  float: left;
+}
+
+.App__header > ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1em 0.5em;
+  text-decoration: none;
+}
+
+.App__header > ul li a:hover {
+  background-color: #111;
+}
+/* custom nav styling end. */
+
+
+@media all and (min-width: 800px) {
+  .App__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0;
+  }
+
+  .App__header > h1 {
+    padding-left: 10px;
+    padding-top: 15px;
+  }
+
+  .App__header > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  header > ul li {
+    float: left;
+  }
+
+  header > ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 16px;
+    text-decoration: none;
+  }
 }

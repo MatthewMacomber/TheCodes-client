@@ -26,3 +26,8 @@
 .welcome > p {
   font-size: larger;
 }
+
+.home-image {
+  width: 450px;
+  height: 500px;
+}

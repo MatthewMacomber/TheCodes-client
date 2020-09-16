@@ -10,12 +10,12 @@ export default class HomePage extends Component {
   };
 
   setHomeImage = homeImage => {
-    this.setState({homeImage})
-  }
+    this.setState({homeImage});
+  };
 
   setHomeAltImage = homeAltImage => {
-    this.setState({homeAltImage})
-  }
+    this.setState({homeAltImage});
+  };
   
   componentDidMount() {
     const homeText = 'jibyr mmuwo cxtvg kozre pdizu hrgre dmyhx fvrfm ffdov yrcgx ymqlp dsxys vsjsb sbzbl wkklx';
@@ -24,7 +24,7 @@ export default class HomePage extends Component {
       lineHeight: 55,
       textAlign: 'center',
       bgColor: '#00000020',
-      textColor: 'red'
+      textColor: '#8D021F'
     })
       .then(this.setHomeImage);
     
@@ -34,18 +34,18 @@ export default class HomePage extends Component {
       lineHeight: 55,
       textAlign: 'center',
       bgColor: '#00000020',
-      textColor: 'red'
+      textColor: '#8D021F'
     })
       .then(this.setHomeAltImage)
   };
 
   onMouseOver = e => {
     e.target.src = this.state.homeAltImage;
-  }
+  };
 
   onMouseOut = e => {
     e.target.src = this.state.homeImage;
-  }
+  };
 
   render() {
     let homeImage = this.state.homeImage;
@@ -53,6 +53,7 @@ export default class HomePage extends Component {
       <div>
         <Section className='main-img'>
           <img
+            className='home-image'
             src={homeImage}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import TokenService from '../../services/token-service';
-import {Hyph} from '../Utils/Utils';
 import './Header.css';
 
 export default class Header extends Component {
@@ -30,64 +29,74 @@ export default class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='Header__logged_in'>
-        <Link
-          to='/codes'>
-          Solve Codes
-        </Link>
-        <Hyph />
-        <Link
-          to='/userhome'>
-          My Home
-        </Link>
-        <Hyph />
-        <Link
-          to='/answers'>
-          My Answers
-        </Link>
-        <Hyph />
-        <Link
-          onClick={this.handleLogoutClick}
-          to='/'>
-          Logout
-        </Link>
-        <Hyph />
-        {this.loadUsername()}
-      </div>
+      <ul className='Header__logged_in'>
+        <li>
+          <Link
+            to='/codes'>
+            Solve Codes
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/userhome'>
+            My Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/answers'>
+            My Answers
+          </Link>
+        </li>
+        <li>
+          <Link
+            onClick={this.handleLogoutClick}
+            to='/'>
+            Logout
+          </Link>
+        </li>
+        <li>
+          {this.loadUsername()}
+        </li>
+      </ul>
     );
   };
 
   renderLoginLink() {
     return (
-      <div className='Header__not-logged-in'>
-        <Link
-          to='/codes'>
-          View Codes
-        </Link>
-        <Hyph />
-        <Link
-          to='/register'>
-          Register
-        </Link>
-        <Hyph />
-        <Link
-          to='/login'>
-          Log in
-        </Link>
-      </div>
+      <ul className='Header__not-logged-in'>
+        <li>
+          <Link
+            to='/codes'>
+            View Codes
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/register'>
+            Register
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/login'>
+            Log in
+          </Link>
+        </li>
+      </ul>
     );
   };
 
   render() {
     return (
-      <nav className='Header'>
+      <>
         <h1>
-          <Link to='/'>
+          <Link to='/' className='logo' title='The Codes Home'>
             The Codes
           </Link>
         </h1>
         {this.props.loggedIn ? this.renderLogoutLink() : this.renderLoginLink()}
-      </nav>
+      </>
     );
   };
 };
