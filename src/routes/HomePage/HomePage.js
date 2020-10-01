@@ -23,8 +23,8 @@ export default class HomePage extends Component {
       fontSize: 50,
       lineHeight: 55,
       textAlign: 'center',
-      bgColor: '#00000020',
-      textColor: '#c7003e'
+      bgColor: '#00000000',
+      textColor: 'rgb(22, 193, 250)'
     })
       .then(this.setHomeImage);
     
@@ -33,7 +33,7 @@ export default class HomePage extends Component {
       fontSize: 50,
       lineHeight: 55,
       textAlign: 'center',
-      bgColor: '#00000020',
+      bgColor: '#00000000',
       textColor: '#c7003e'
     })
       .then(this.setHomeAltImage)
@@ -52,13 +52,15 @@ export default class HomePage extends Component {
     return (
       <div>
         <Section className='main-img'>
-          <img
-            className='home-image'
-            src={homeImage}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
-            alt="Homepage example code: jibyr mmuwo cxtvg kozre pdizu hrgre dmyhx fvrfm ffdov yrcgx ymqlp dsxys vsjsb sbzbl wkklx"
-          />
+          <div className='box boxed'>
+            <img
+              className='home-image'
+              src={homeImage}
+              onMouseOver={this.onMouseOver}
+              onMouseOut={this.onMouseOut}
+              alt="Homepage example code: jibyr mmuwo cxtvg kozre pdizu hrgre dmyhx fvrfm ffdov yrcgx ymqlp dsxys vsjsb sbzbl wkklx"
+            />
+          </div>
         </Section>
         <Section>
           <hr/>{/* TODO Add login and register buttons that only appear if a user is not logged in. */}

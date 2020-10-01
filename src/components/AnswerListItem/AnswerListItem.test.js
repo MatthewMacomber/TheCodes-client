@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import CodeListItem from './CodeListItem';
+import AnswerListItem from './AnswerListItem';
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -16,8 +16,8 @@ describe('CodeListItem component', () => {
     date_created: new Date(2018, 12, 15)
   }
 
-  it('renders the CodeListItem given props', () => {
-    const wrapper = shallow(<CodeListItem code={props} />);
+  it('renders the AnswerListItem given props', () => {
+    const wrapper = shallow(<AnswerListItem answer={props} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

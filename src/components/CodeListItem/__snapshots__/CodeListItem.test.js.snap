@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeListItem component renders the CodeListItem given props 1`] = `
+<Link
+  className="CodeListItem"
+  to="/code/1"
+>
+  <img
+    alt="test code"
+    className="image"
+    src=""
+  />
+  <div
+    className="overlay after"
+  >
+    <header
+      className="CodeListItem__header"
+    >
+      <h2
+        className="CodeListItem__heading"
+      >
+        code
+      </h2>
+      <CodeDate
+        code={
+          Object {
+            "content": "test code",
+            "date_created": 2019-01-15T08:00:00.000Z,
+            "id": 1,
+            "title": "code",
+            "user_name": "test",
+          }
+        }
+      />
+    </header>
+    <footer
+      className="CodeListItem__footer"
+    >
+      Created by
+      <Hyph />
+      <CodeAuthor
+        code={
+          Object {
+            "content": "test code",
+            "date_created": 2019-01-15T08:00:00.000Z,
+            "id": 1,
+            "title": "code",
+            "user_name": "test",
+          }
+        }
+      />
+    </footer>
+  </div>
+</Link>
+`;

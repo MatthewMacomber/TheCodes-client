@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import HomePage from './HomePage';
 
-describe('App component', () => {
-  it('Renders App without crashing', () => {
+describe('HomePage component', () => {
+  it('renders the HomePage without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <HomePage />
       </BrowserRouter>,
       div
     );
     ReactDOM.unmountComponentAtNode(div);
-  });
+  })
 });

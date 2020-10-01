@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import UserCodesPage from './UserCodesPage';
 
-describe('App component', () => {
-  it('Renders App without crashing', () => {
+describe('UserCodesPage component', () => {
+  it('renders the UserCodesPage without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <UserCodesPage />
       </BrowserRouter>,
       div
     );
     ReactDOM.unmountComponentAtNode(div);
-  });
+  })
 });

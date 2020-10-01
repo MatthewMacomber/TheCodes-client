@@ -56,7 +56,10 @@ export default class Header extends Component {
           </Link>
         </li>
         <li>
-          {this.loadUsername()}
+          <Link
+            to='/'>
+            {this.loadUsername()}
+          </Link>
         </li>
       </ul>
     );

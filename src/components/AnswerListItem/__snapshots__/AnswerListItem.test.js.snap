@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeListItem component renders the AnswerListItem given props 1`] = `
+<Link
+  className="AnswerListItem"
+  to="/answer/1"
+>
+  <img
+    alt="test code"
+    class="image"
+    src=""
+  />
+  <div
+    className="overlay"
+  >
+    <header
+      className="AnswerListItem__header"
+    >
+      <h2
+        className="AnswerListItem__header"
+      >
+        Answer for code id: 
+      </h2>
+      <NiceDate
+        date={2019-01-15T08:00:00.000Z}
+      />
+    </header>
+    <h3>
+      Wrong
+    </h3>
+    <footer>
+      Answer ID 
+      <Hyph />
+       
+      1
+    </footer>
+  </div>
+</Link>
+`;

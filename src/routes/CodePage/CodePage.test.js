@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import CodePage from './CodePage';
 
-describe('App component', () => {
-  it('Renders App without crashing', () => {
+describe('CodePage component', () => {
+  it('renders the CodePage without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <CodePage />
       </BrowserRouter>,
       div
     );
     ReactDOM.unmountComponentAtNode(div);
-  });
+  })
 });

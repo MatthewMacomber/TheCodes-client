@@ -12,6 +12,6 @@
 main {
   display: flex;
   flex-direction: column;
-  background: rgb(133, 28, 252);
+  background: rgb(255, 255, 255);
 }
 
