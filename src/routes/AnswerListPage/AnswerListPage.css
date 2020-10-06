@@ -1,0 +1,13 @@
+.AnswerListPage {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.answerlistpagetitle {
+  text-align: center;
+}

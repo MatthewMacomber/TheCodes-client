@@ -11,6 +11,7 @@ import AnswerListItem from '../../components/AnswerListItem/AnswerListItem';
 import RequestListPage from '../RequestListPage/RequestListPage';
 import RequestListItem from '../../components/RequestListItem/RequestListItem';
 
+import './AdminPage.css';
 
 export default class AdminPage extends Component {
   static defaultProps ={
@@ -132,7 +133,9 @@ export default class AdminPage extends Component {
     return (
       <Section className='AdminPage'>
         {this.renderAdmin()}
-        {error ? <p className='red'>There was an error, please try again</p> : content}
+        <div>
+          {error ? <p className='red'>There was an error, please try again</p> : content}
+        </div>
       </Section>
     );
   };

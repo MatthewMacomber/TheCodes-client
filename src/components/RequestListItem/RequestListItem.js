@@ -14,7 +14,7 @@ export default class RequestListItem extends Component {
         </header>
         <div>
           <h3>Request Type: {request.req_type}</h3>
-          <p>Request: <Link to={`/answers/${request.content[0]}`}>{request.content[1]}</Link></p>
+          <p>Request: <Link to={`/answers/${request.content[request.content.length - 1]}`}>{request.content}</Link></p>
         </div>
         <footer>
           Request ID <Hyph /> {request.id}

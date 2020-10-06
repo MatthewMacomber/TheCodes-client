@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AdminApiService from '../../services/admin-api-service';
 import {Section} from '../../components/Utils/Utils';
 import AnswerListItem from '../../components/AnswerListItem/AnswerListItem';
+import './AnswerListPage.css'
 
 export default class AnswerListPage extends Component {
   static defaultProps = {
@@ -45,10 +46,13 @@ export default class AnswerListPage extends Component {
   render() {
     const {error} = this.state;
     return (
-      <Section list className='AnswerListPage'>
-        <p>Answer List:</p>
-        {error ? <p className='red'>There was an error, please try again</p> : this.renderAnswers()}
-      </Section>
+      <>
+        <h2 className='answerlistpagetitle'>Answer List:</h2>
+        <Section list className='AnswerListPage'>
+          
+          {error ? <p className='red'>There was an error, please try again</p> : this.renderAnswers()}
+        </Section>
+      </>
     );
   };
 };
