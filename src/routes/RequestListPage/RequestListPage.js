@@ -46,7 +46,7 @@ export default class RequestListPage extends Component {
     const {error} = this.state;
     return (
       <Section list className='RequestListPage'>
-        <p>Answer List:</p>
+        <p>Request List:</p>
         {error ? <p className='red'>There was an error, please try again</p> : this.renderRequests()}
       </Section>
     );
